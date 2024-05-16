@@ -270,3 +270,5 @@ C:\Users\Wojtek746\Desktop\visualStudio\MiniMesTrain-main\src\gitHub\MiniMesTrai
 C:\Users\Wojtek746\Desktop\visualStudio\MiniMesTrain-main\src\gitHub\MiniMesTrain\MiniMesTrainApi\obj\Debug\net8.0\MiniMesTrainApi.pdb
 C:\Users\Wojtek746\Desktop\visualStudio\MiniMesTrain-main\src\gitHub\MiniMesTrain\MiniMesTrainApi\obj\Debug\net8.0\MiniMesTrainApi.genruntimeconfig.cache
 C:\Users\Wojtek746\Desktop\visualStudio\MiniMesTrain-main\src\gitHub\MiniMesTrain\MiniMesTrainApi\obj\Debug\net8.0\ref\MiniMesTrainApi.dll
+C:\Users\Wojtek746\Desktop\visualStudio\MiniMesTrain-main\src\gitHub\MiniMesTrain\MiniMesTrainApi\obj\Debug\net8.0\MiniMesTrainApi.sourcelink.json
+C:\Users\Wojtek746\Desktop\visualStudio\MiniMesTrain-main\src\gitHub\MiniMesTrain\MiniMesTrainApi\bin\Debug\net8.0\Newtonsoft.Json.dll

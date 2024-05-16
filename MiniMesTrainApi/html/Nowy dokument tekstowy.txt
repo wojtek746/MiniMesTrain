@@ -1,0 +1,8 @@
+mediator
+#FromBody
+wzorzec repozytorium
+warstwy abstrakcji
+typy/klasy/obiekty generyczne (interface; dziedziczenie)
+dependency injection
+serwisy w aplikacjach .NET
+interface a klasa (implementacja)

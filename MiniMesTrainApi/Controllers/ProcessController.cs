@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MiniMesTrainApi.html;
 using MiniMesTrainApi.Models;
 using MiniMesTrainApi.Persistance;
+using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
@@ -202,42 +204,91 @@ namespace MiniMesTrainApi.Controllers
             return Ok(processWithExtraProperties);
         }
 
-        [HttpPost]
-        [Route("selectBy/{processId}/{serialNumber}/{orderId}/{orderCode}/{machineId}/{productId}/{quantity}/{processParameterId}/{ParameterId}/{processParameterValue}/{DateTimeFrom}/{DateTimeTo}")]
-        public IActionResult selectBy([FromRoute] int processId, [FromRoute] string serialNumber, 
-            [FromRoute] int orderId, [FromRoute] string orderCode, [FromRoute] int machineId, [FromRoute] int productId, [FromRoute] int quantity,
-            [FromRoute] int processParameterId, [FromRoute] int ParameterId, [FromRoute] string processParameterValue,
-            [FromRoute] string DateTimeFrom, [FromRoute] string DateTimeTo)
+        /*[HttpPost]
+        [Route("selectBy")]
+        public IActionResult selectBy([FromBody] ProcessSelectBy formData)
         {
             DateTime fromDate = DateTime.MinValue;
             DateTime toDate = DateTime.MaxValue;
-            if (DateTimeFrom != "null")
+            try
             {
-                DateTimeFrom = HttpUtility.UrlDecode(DateTimeFrom);
-                fromDate = DateTime.ParseExact(DateTimeFrom, "MM/dd/yyyy", CultureInfo.InvariantCulture); //05%2F14%2F2024
+                //DateTimeFrom = HttpUtility.UrlDecode(DateTimeFrom);
+                fromDate = DateTime.ParseExact(formData.DateTimeFrom, "MM/dd/yyyy", CultureInfo.InvariantCulture); //05%2F14%2F2024
             }
-            if (DateTimeTo != "null")
+            catch (Exception ex) { }
+            try
             {
-                DateTimeTo = HttpUtility.UrlDecode(DateTimeTo);
-                toDate = DateTime.ParseExact(DateTimeTo, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                //DateTimeTo = HttpUtility.UrlDecode(DateTimeTo);
+                toDate = DateTime.ParseExact(formData.DateTimeTo, "MM/dd/yyyy", CultureInfo.InvariantCulture);
             }
+            catch (Exception ex) { }
 
             List<Process> process = _dbContext.Processes
                 .Include(m => m.Order)
                 .Include(m => m.ProcessParameters)
-                .Where(m => m.Id == processId || processId <= 0)
-                .Where(m => m.SerialNumber == serialNumber || serialNumber == "null")
-                .Where (m => m.OrderId == orderId || orderId <= 0)
-                .Where(m => m.Order.Code.Contains(orderCode) || orderCode == "null")
-                .Where(m => m.Order.MachineId == machineId || machineId <= 0)
-                .Where(m => m.Order.ProductId == productId || productId <= 0)
-                .Where(m => m.Order.Quantity == quantity || quantity <= 0)
-                .Where(m => m.ProcessParameters.Any(p => p.Id == processParameterId) || processParameterId <= 0)
-                .Where(m => m.ProcessParameters.Any(p => p.ParameterId == ParameterId) || ParameterId <= 0)
-                .Where(m => m.ProcessParameters.Any(p => p.Value.Contains(processParameterValue)) || processParameterValue == "null")
-                .Where(m => m.DateTime >= fromDate || DateTimeFrom == "null")
-                .Where(m => m.DateTime <= toDate || DateTimeTo == "null")
+                .Where(m => m.Id == formData.ProcessId || formData.ProcessId <= 0)
+                .Where(m => m.SerialNumber == formData.SerialNumber || formData.SerialNumber == "null")
+                .Where(m => m.OrderId == formData.OrderId || formData.OrderId <= 0)
+                .Where(m => m.Order.Code.Contains(formData.OrderCode) || formData.OrderCode == "null")
+                .Where(m => m.Order.MachineId == formData.MachineId || formData.MachineId <= 0)
+                .Where(m => m.Order.ProductId == formData.ProductId || formData.ProductId <= 0)
+                .Where(m => m.Order.Quantity == formData.Quantity || formData.Quantity <= 0)
+                .Where(m => m.ProcessParameters.Any(p => p.Id == formData.ProcessParameterId) || formData.ProcessParameterId <= 0)
+                .Where(m => m.ProcessParameters.Any(p => p.ParameterId == formData.ParameterId) || formData.ParameterId <= 0)
+                .Where(m => m.ProcessParameters.Any(p => p.Value.Contains(formData.ProcessParameterValue)) || formData.ProcessParameterValue == "null")
+                .Where(m => m.DateTime >= fromDate)
+                .Where(m => m.DateTime <= toDate)
                 .ToList();
+
+            var processWithExtraProperties = process.Select(process => new
+            {
+                process.Id,
+                process.SerialNumber,
+                process.OrderId,
+                process.Status,
+                DateTime = process.DateTime.ToString("dddd, dd MMMM yyyy HH:mm:ss"),
+                process.Order,
+                process.ProcessParameters
+            });
+            return Ok(processWithExtraProperties);
+        }*/
+
+        [HttpPost]
+        [Route("selectBy")]
+        public IActionResult selectBy([FromBody] ProcessSelectBy formData)
+        {
+            DateTime fromDate = DateTime.MinValue;
+            DateTime toDate = DateTime.MaxValue;
+            try
+            {
+                fromDate = DateTime.ParseExact(formData.DateTimeFrom, "MM/dd/yyyy", CultureInfo.InvariantCulture); 
+            } catch (FormatException ex){}
+            try
+            {
+                toDate = DateTime.ParseExact(formData.DateTimeTo, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+            } catch (FormatException ex){}
+
+            var process = new List<Process>();
+
+            var optionsBuilder = new DbContextOptionsBuilder<MiniProductionDbContext>();
+            optionsBuilder.UseSqlServer("Data Source = localhost\\SQLEXPRESS02; Initial Catalog = MiniProductionTrainDb; Persist Security Info=True; Integrated Security=SSPI; Connection Timeout = 15; TrustServerCertificate=True; ");
+
+            using (var dbContext = new MiniProductionDbContext(optionsBuilder.Options))
+            {
+                var query = dbContext.Processes.Where(m => m.DateTime >= fromDate).Where(m => m.DateTime <= toDate).AsQueryable();
+                if (formData.ProcessId > 0) query = query.Where(m => m.Id == formData.ProcessId);
+                if (formData.SerialNumber != "null") query = query.Where(m => m.SerialNumber == formData.SerialNumber);
+                if (formData.OrderId > 0) query = query.Where(m => m.OrderId == formData.OrderId);
+                query = query.Include(m => m.Order);
+                if (formData.OrderCode != "null") query = query.Where(m => m.Order.Code.Contains(formData.OrderCode));
+                if (formData.MachineId > 0) query = query.Where(m => m.Order.MachineId == formData.MachineId);
+                if (formData.ProductId > 0) query = query.Where(m => m.Order.ProductId == formData.ProductId);
+                if (formData.Quantity > 0) query = query.Where(m => m.Order.Quantity == formData.Quantity);
+                query = query.Include(m => m.ProcessParameters);
+                if (formData.ProcessParameterId > 0) query = query.Where(m => m.ProcessParameters.Any(p => p.Id == formData.ProcessParameterId));
+                if (formData.ProcessParameterValue != "null") query = query.Where(m => m.ProcessParameters.Any(p => p.Value.Contains(formData.ProcessParameterValue)));
+                process = query.ToList();
+            }
 
             var processWithExtraProperties = process.Select(process => new
             {

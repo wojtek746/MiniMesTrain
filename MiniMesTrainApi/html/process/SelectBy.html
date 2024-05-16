@@ -182,43 +182,54 @@
 
             const reg = /[0-9]{2}[w]{1}[0-9]{1,}[a]{1}/
 
-            let processId = document.getElementById('processId').value;
-            let serialNumber = document.getElementById('serialNumber').value;
-            let orderId = document.getElementById('orderId').value;
-            let orderCode = document.getElementById('orderCode').value;
-            let machineId = document.getElementById('machineId').value;
-            let productId = document.getElementById('productId').value;
-            let quantity = document.getElementById('quantity').value;
-            let processParameterId = document.getElementById('processParameterId').value;
-            let ParameterId = document.getElementById('ParameterId').value;
-            let processParameterValue = document.getElementById('processParameterValue').value;
-            let DateTimeFrom = document.getElementById('DateTimeFrom').value;
-            let DateTimeTo = document.getElementById('DateTimeTo').value;
+            let processId = document.getElementById('processId').value || 0;
+            let serialNumber = document.getElementById('serialNumber').value || "null";
+            let orderId = document.getElementById('orderId').value || 0;
+            let orderCode = document.getElementById('orderCode').value || "null";
+            let machineId = document.getElementById('machineId').value || 0;
+            let productId = document.getElementById('productId').value || 0;
+            let quantity = document.getElementById('quantity').value || 0;
+            let processParameterId = document.getElementById('processParameterId').value || 0;
+            let ParameterId = document.getElementById('ParameterId').value || 0;
+            let processParameterValue = document.getElementById('processParameterValue').value || "null";
+            let DateTimeFrom = document.getElementById('DateTimeFrom').value || "null";
+            let DateTimeTo = document.getElementById('DateTimeTo').value || "null";
 
-            if (processId == "") processId = 0;
-            if (orderId == "") orderId = 0;
-            if (orderCode == "") orderCode = "null";
-            if (machineId == "") machineId = 0;
-            if (productId == "") productId = 0;
-            if (quantity == "") quantity = 0;
-            if (processParameterId == "") processParameterId = 0;
-            if (ParameterId == "") ParameterId = 0;
-            if (processParameterValue == "") processParameterValue = "null";
-            if (DateTimeFrom == "") DateTimeFrom = "null";
-            if (DateTimeTo == "") DateTimeTo = "null";
 
-            if (serialNumber == "") {
+            if (serialNumber == "" || serialNumber == "null") {
                 serialNumber = "null";
                 document.getElementById('serialNumber').style.background = "";
             } else if (!reg.test(serialNumber)) {
                 document.getElementById('serialNumber').style.background = "red";
+                return; 
             } else {
                 document.getElementById('serialNumber').style.background = "";
             }
 
-            fetch(`http://localhost:5001/process/selectBy/${processId}/${serialNumber}/${orderId}/${orderCode}/${machineId}/${productId}/${quantity}/${processParameterId}
-            /${ParameterId}/${processParameterValue}/${encodeURIComponent(DateTimeFrom)}/${encodeURIComponent(DateTimeTo)}`, {
-                method: 'POST'
+            let requestBody = {
+                processId,
+                serialNumber,
+                orderId,
+                orderCode,
+                machineId,
+                productId,
+                quantity,
+                processParameterId,
+                ParameterId,
+                processParameterValue,
+                DateTimeFrom,
+                DateTimeTo
+            };
+
+            console.log(requestBody)
+
+            fetch('http://localhost:5001/process/selectBy', { //${processId}/${serialNumber}/${orderId}/${orderCode}/${machineId}/${productId}/${quantity}/${processParameterId}
+            //${ParameterId}/${processParameterValue}/${encodeURIComponent(DateTimeFrom)}/${encodeURIComponent(DateTimeTo)}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(requestBody)
             })
                 .then(response => response.json())
                 .then(data => displayMachineList(data))

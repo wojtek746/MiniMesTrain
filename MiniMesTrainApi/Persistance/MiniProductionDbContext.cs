@@ -3,8 +3,11 @@ using MiniMesTrainApi.Models;
 
 namespace MiniMesTrainApi.Persistance
 {
-    public class MiniProductionDbContext(DbContextOptions options) : DbContext(options)
+    public class MiniProductionDbContext : DbContext
     {
+        public MiniProductionDbContext(DbContextOptions<MiniProductionDbContext> options) : base(options)
+        {
+        }
         public virtual DbSet<Machine> Machines { get; set; } = null!;
         public virtual DbSet<Product> Products { get; set; } = null!;
         public virtual DbSet<Order> Orders { get; set; } = null!;
