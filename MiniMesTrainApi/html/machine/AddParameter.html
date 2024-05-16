@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine</title>
+	<style>
+		a{
+			text-decoration: None; 
+			color: black; 
+		}
+		button{
+			margin: 15px; 
+		}
+        td, tr, th, table {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        label {
+            display: inline-block;
+            width: 150px;
+        }
+	</style>
+</head>
+<body>
+    <nav>
+        <button><a href="http://localhost:8000/machine/SelectAll.html">Machine</a></button>
+        <button><a href="http://localhost:8000/product/SelectAll.html">Product</a></button>
+        <button><a href="http://localhost:8000/order/SelectAll.html">Order</a></button>
+        <button><a href="http://localhost:8000/parameter/SelectAll.html">Parameter</a></button>
+        <button><a href="http://localhost:8000/process/SelectAll.html">Process</a></button>
+        <button><a href="http://localhost:8000/processParameter/SelectAll.html">Process Parameter</a></button>
+    </nav>
+    <nav>
+        <button><a href="SelectAll.html">Select All</a></button>
+        <button><a href="AddNew.html">Add New</a></button>
+        <button><a href="AddParameter.html">Add Parameter</a></button>
+        <button><a href="AddOrder.html">Add Order To</a></button>
+        <button><a href="Change.html">Change</a></button>
+    </nav>
+    <h1>Machine</h1>
+
+    <form id="form">
+        <div>
+            <label for="machineId">MachineId:</label>
+            <input type="number" id="machineId" name="machineId: " required>
+        </div>
+        <div>
+            <label for="parameterId">ParameterId:</label>
+            <input type="number" id="parameterId" name="parameterId" required>
+        </div>
+        <button type="submit">Add</button>
+    </form>
+
+    <div id="response"></div>
+
+    <script>
+        document.getElementById('form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const responses = document.getElementById('response');
+            responses.innerHTML = "";
+
+            const machineId = document.getElementById('machineId').value;
+            const parameterId = document.getElementById('parameterId').value;
+
+            fetch(`http://localhost:5001/machine/addParameter/${machineId}/${parameterId}`, {
+                method: 'POST'
+            })
+                .then(response => {
+                    if (response.ok) {
+                        document.getElementById('form').reset();
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    responses.innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    responses.innerHTML = error;
+                });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine</title>
+	<style>
+		a{
+			text-decoration: None; 
+			color: black; 
+		}
+		button{
+			margin: 15px; 
+		}
+        td, tr, th, table {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .order-table tr td, .order-table tr th {
+            width: 100px;
+        }
+        .th {
+            width: 100px;
+        }
+        label {
+            display: inline-block;
+            width: 150px;
+        }
+	</style>
+</head>
+<body onload="selectAll()">
+    <nav>
+        <button><a href="http://localhost:8000/machine/SelectAll.html">Machine</a></button>
+        <button><a href="http://localhost:8000/product/SelectAll.html">Product</a></button>
+        <button><a href="http://localhost:8000/order/SelectAll.html">Order</a></button>
+        <button><a href="http://localhost:8000/parameter/SelectAll.html">Parameter</a></button>
+        <button><a href="http://localhost:8000/process/SelectAll.html">Process</a></button>
+        <button><a href="http://localhost:8000/processParameter/SelectAll.html">Process Parameter</a></button>
+    </nav>
+    <nav>
+        <button><a href="SelectAll.html">Select All</a></button>
+        <button><a href="AddNew.html">Add New</a></button>
+        <button><a href="AddParameter.html">Add Parameter</a></button>
+        <button><a href="AddOrder.html">Add Order To</a></button>
+        <button><a href="Change.html">Change</a></button>
+    </nav>
+    <h1>Machine</h1>
+
+    <button onclick="selectAll()">Reload</button>
+
+    <table id="machine-table">
+        <thead>
+            <tr>
+                <th class="th">ID</th>
+                <th class="th">Name</th>
+                <th class="th">Description</th>
+                <th>
+                    Parameters
+                    <table class="order-table">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Unit</th>
+                        </tr>
+                    </table>
+                </th>
+                <th>
+                    Orders
+                    <table class="order-table">
+                        <tr>
+                            <th>ID</th>
+                            <th>Code</th>
+                            <th>MachineId</th>
+                            <th>ProductId</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </table>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="machine-body">
+        </tbody>
+    </table>
+
+    <script>
+        function selectAll() {
+            fetch('http://localhost:5001/machine/selectAll/')
+                .then(response => response.json())
+                .then(data => displayMachineList(data))
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('message').innerText = 'An error occurred.';
+                });
+        }
+
+        function displayMachineList(machineList) {
+            //console.log(machineList);
+            const machineBody = document.getElementById('machine-body');
+            machineBody.innerHTML = "";
+
+            machineList.forEach(machine => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                        <td>${machine.id}</td>
+                        <td>${machine.name}</td>
+                        <td>${machine.description}</td>
+                        <td>
+                            <table class="order-table">
+                                ${machine.machineParameter.map(machineParameter => `
+                                    <tr>
+                                        <td>${machineParameter.parameter.id}</td>
+                                        <td>${machineParameter.parameter.name}</td>
+                                        <td>${machineParameter.parameter.unit}</td>
+                                    </tr>
+                                `).join('')}
+                            </table>
+                        </td>
+                        <td>
+                            <table class="order-table">
+                                ${machine.orders.map(order => `
+                                    <tr>
+                                        <td>${order.id}</td>
+                                        <td>${order.code}</td>
+                                        <td>${order.machineId}</td>
+                                        <td>${order.productId}</td>
+                                        <td>${order.quantity}</td>
+                                    </tr>
+                                `).join('')}
+                            </table>
+                        </td>
+                    `;
+
+                machineBody.appendChild(row);
+            });
+        }
+    </script>
+</body>
+</html>

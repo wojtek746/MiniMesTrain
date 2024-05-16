@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\bin",
+    "\\Controllers",
+    "\\Migrations",
+    "\\Models",
+    "\\obj\\Debug",
+    "\\obj\\Debug\\net8.0",
+    "\\obj\\Release\\net8.0",
+    "\\Persistance",
+    "\\Properties"
+  ],
+  "SelectedNode": "\\Persistance\\MiniProductionDbContext.cs",
+  "PreviewInSolutionExplorer": false
+}

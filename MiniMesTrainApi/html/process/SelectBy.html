@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+    <script>
+        $(function () {
+            var dateFormat = "mm/dd/yy",
+                from = $("#DateTimeFrom").datepicker({
+                    defaultDate: "+1w",
+                    changeMonth: true,
+                    numberOfMonths: 1
+                }).on("change", function () {
+                    to.datepicker("option", "minDate", getDate(this));
+                }),
+
+                to = $("#DateTimeTo").datepicker({
+                    defaultDate: "+1w",
+                    changeMonth: true,
+                    numberOfMonths: 1
+                }).on("change", function () {
+                    from.datepicker("option", "maxDate", getDate(this));
+                });
+
+            function getDate(element) {
+                var date;
+                try {
+                    date = $.datepicker.parseDate(dateFormat, element.value);
+                } catch (error) {
+                    date = null;
+                }
+
+                return date;
+            }
+        });
+    </script>
+    <title>Machine</title>
+    <style>
+        a {
+            text-decoration: None;
+            color: black;
+        }
+
+        button {
+            margin: 15px;
+        }
+
+        td, tr, th, table {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        .order-table tr td, .order-table tr th {
+            min-width: 100px;
+        }
+
+        .th {
+            min-width: 100px;
+        }
+
+        label {
+            display: inline-block;
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <button><a href="http://localhost:8000/machine/SelectAll.html">Machine</a></button>
+        <button><a href="http://localhost:8000/product/SelectAll.html">Product</a></button>
+        <button><a href="http://localhost:8000/order/SelectAll.html">Order</a></button>
+        <button><a href="http://localhost:8000/parameter/SelectAll.html">Parameter</a></button>
+        <button><a href="http://localhost:8000/process/SelectAll.html">Process</a></button>
+        <button><a href="http://localhost:8000/processParameter/SelectAll.html">Process Parameter</a></button>
+    </nav>
+    <nav>
+        <button><a href="SelectAll.html">Select All</a></button>
+        <button><a href="SelectBy.html">Select By</a></button>
+        <button><a href="AddNew.html">Add New</a></button>
+        <button><a href="AddParameter.html">Add Parameter</a></button>
+        <button><a href="ChangeOrder.html">Change Order</a></button>
+        <button><a href="Change.html">Change</a></button>
+    </nav>
+    <h1>Process</h1>
+
+    <form id="form">
+        <div>
+            <label for="processId">processId:</label>
+            <input type="number" id="processId" name="processId">
+        </div>
+        <div>
+            <label for="serialNumber">Serial Number:</label>
+            <input type="text" id="serialNumber" name="serialNumber">
+        </div>
+        <div>
+            <label for="orderId">orderId:</label>
+            <input type="number" id="orderId" name="orderId">
+        </div>
+        <div>
+            <label for="orderCode">Order Code:</label>
+            <input type="text" id="orderCode" name="orderCode">
+        </div>
+        <div>
+            <label for="machineId">machineId:</label>
+            <input type="text" id="machineId" name="machineId">
+        </div>
+        <div>
+            <label for="productId">productId:</label>
+            <input type="number" id="productId" name="productId">
+        </div>
+        <div>
+            <label for="quantity">Quantity:</label>
+            <input type="text" id="quantity" name="quantity">
+        </div>
+        <div>
+            <label for="processParameterId">processParameterId:</label>
+            <input type="number" id="processParameterId" name="processParameterId">
+        </div>
+        <div>
+            <label for="ParameterId">ParameterId:</label>
+            <input type="number" id="ParameterId" name="ParameterId">
+        </div>
+        <div>
+            <label for="processParameterValue">Value:</label>
+            <input type="text" id="processParameterValue" name="processParameterValue">
+        </div>
+        <div>
+            <label for="DateTimeFrom">Od ile dni temu:</label>
+            <input type="text" id="DateTimeFrom" name="DateTimeFrom">
+        </div>
+        <div>
+            <label for="DateTimeTo">Do ile dni temu:</label>
+            <input type="text" id="DateTimeTo" name="DateTimeTo">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+    <table id="machine-table">
+        <thead>
+            <tr>
+                <th class="th">ID</th>
+                <th class="th">Serial Number</th>
+                <th class="th">OrderId</th>
+                <th class="th">Status</th>
+                <th class="th">Date Time</th>
+                <th>
+                    Orders
+                    <table class="order-table">
+                        <tr>
+                            <th>ID</th>
+                            <th>Code</th>
+                            <th>MachineId</th>
+                            <th>ProductId</th>
+                            <th>Quantity</th>
+                            <th>processesId</th>
+                        </tr>
+                    </table>
+                </th>
+                <th>
+                    Process Parameters
+                    <table class="order-table">
+                        <tr>
+                            <th>ID</th>
+                            <th>ProcessId</th>
+                            <th>ParameterId</th>
+                            <th>Value</th>
+                        </tr>
+                    </table>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="machine-body">
+        </tbody>
+    </table>
+
+    <script>
+        document.getElementById('form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const reg = /[0-9]{2}[w]{1}[0-9]{1,}[a]{1}/
+
+            let processId = document.getElementById('processId').value;
+            let serialNumber = document.getElementById('serialNumber').value;
+            let orderId = document.getElementById('orderId').value;
+            let orderCode = document.getElementById('orderCode').value;
+            let machineId = document.getElementById('machineId').value;
+            let productId = document.getElementById('productId').value;
+            let quantity = document.getElementById('quantity').value;
+            let processParameterId = document.getElementById('processParameterId').value;
+            let ParameterId = document.getElementById('ParameterId').value;
+            let processParameterValue = document.getElementById('processParameterValue').value;
+            let DateTimeFrom = document.getElementById('DateTimeFrom').value;
+            let DateTimeTo = document.getElementById('DateTimeTo').value;
+
+            if (processId == "") processId = 0;
+            if (orderId == "") orderId = 0;
+            if (orderCode == "") orderCode = "null";
+            if (machineId == "") machineId = 0;
+            if (productId == "") productId = 0;
+            if (quantity == "") quantity = 0;
+            if (processParameterId == "") processParameterId = 0;
+            if (ParameterId == "") ParameterId = 0;
+            if (processParameterValue == "") processParameterValue = "null";
+            if (DateTimeFrom == "") DateTimeFrom = "null";
+            if (DateTimeTo == "") DateTimeTo = "null";
+
+            if (serialNumber == "") {
+                serialNumber = "null";
+                document.getElementById('serialNumber').style.background = "";
+            } else if (!reg.test(serialNumber)) {
+                document.getElementById('serialNumber').style.background = "red";
+            } else {
+                document.getElementById('serialNumber').style.background = "";
+            }
+
+            fetch(`http://localhost:5001/process/selectBy/${processId}/${serialNumber}/${orderId}/${orderCode}/${machineId}/${productId}/${quantity}/${processParameterId}
+            /${ParameterId}/${processParameterValue}/${encodeURIComponent(DateTimeFrom)}/${encodeURIComponent(DateTimeTo)}`, {
+                method: 'POST'
+            })
+                .then(response => response.json())
+                .then(data => displayMachineList(data))
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('message').innerText = 'An error occurred.';
+                });
+        }); 
+
+        function displayMachineList(machineList) {
+            //console.log(machineList);
+            const machineBody = document.getElementById('machine-body');
+            machineBody.innerHTML = "";
+
+            machineList.forEach(machine => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                        <td>${machine.id}</td>
+                        <td>${machine.serialNumber}</td>
+                        <td>${machine.orderId}</td>
+                        <td>${machine.status}</td>
+                        <td>${machine.dateTime}</td>
+                        <td>
+                            <table class="order-table">
+                                <tr>
+                                    <td>${machine.order.id}</td>
+                                    <td>${machine.order.code}</td>
+                                    <td>${machine.order.machineId}</td>
+                                    <td>${machine.order.productId}</td>
+                                    <td>${machine.order.quantity}</td>
+                                    <td>
+                                        <table class="order-table">
+                                            ${machine.order.processes.map(process => `
+                                                <tr>
+                                                    <td>${process.id}</td>
+                                                </tr>
+                                            `).join('')}
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table class="order-table">
+                                <tr>
+                                    <td>
+                                        <table class="order-table">
+                                            ${machine.processParameters.map(processParameter => `
+                                                <tr>
+                                                    <td>${processParameter.id}</td>
+                                                    <td>${processParameter.processId}</td>
+                                                    <td>${processParameter.parameterId}</td>
+                                                    <td>${processParameter.value}</td>
+                                                </tr>
+                                            `).join('')}
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    `;
+
+                machineBody.appendChild(row);
+            });
+        }
+    </script>
+</body>
+</html>
