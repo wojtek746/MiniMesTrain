@@ -70,8 +70,18 @@
             const parameterId = document.getElementById('parameterId').value;
             const value = document.getElementById('value').value;
 
-            fetch(`http://localhost:5001/process/addParameter/${processId}/${parameterId}/${value}`, {
-                method: 'POST'
+            const data = {
+                processId: processId,
+                parameterId: parameterId, 
+                value: value
+            };
+
+            fetch(`http://localhost:5001/process/addParameter`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
             })
                 .then(response => {
                     if (response.ok) {

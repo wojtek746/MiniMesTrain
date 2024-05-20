@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MiniMesTrainApi.Repository;
 
 namespace MiniMesTrainApi
 {
@@ -44,6 +45,7 @@ namespace MiniMesTrainApi
             }
 
             builder.Services.AddScoped<IProcessRepository, ProcessRepository>();
+            builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
             var app = builder.Build();
 

@@ -66,12 +66,31 @@
             const responses = document.getElementById('response');
             responses.innerHTML = "";
 
+            const reg = /[0-9]{2}[w]{1}[0-9]{1,}[a]{1}/
+
             const processId = document.getElementById('processId').value;
             const serialNumber = document.getElementById('serialNumber').value;
             const orderId = document.getElementById('orderId').value;
 
-            fetch(`http://localhost:5001/process/change/${processId}/${serialNumber}/${orderId}`, {
-                method: 'POST'
+            if (!reg.test(serialNumber)) {
+                document.getElementById('serialNumber').style.background = "red";
+                return;
+            } else {
+                document.getElementById('serialNumber').style.background = "";
+            }
+
+            const data = {
+                processId: processId, 
+                serialNumber: serialNumber, 
+                orderId: orderId
+            }; 
+
+            fetch(`http://localhost:5001/process/change`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
             })
                 .then(response => {
                     if (response.ok) {

@@ -1,16 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MiniMesTrainApi.html;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using MiniMesTrainApi.FromBodys;
+using MiniMesTrainApi.FromBodys.process;
+using MiniMesTrainApi.IRepository;
 using MiniMesTrainApi.Models;
 using MiniMesTrainApi.Persistance;
+using System.Data.Common;
 using System.Globalization;
 
-public interface IProcessRepository
-{
-    List<Process> SelectBy(ProcessSelectBy formData);
-    List<Process> SelectAll();
-}
-
-public class ProcessRepository : IProcessRepository
+public class ProcessRepository : IRepository
 {
     private readonly MiniProductionDbContext _dbContext;
 
@@ -19,7 +17,7 @@ public class ProcessRepository : IProcessRepository
         _dbContext = dbContext;
     }
 
-    public List<Process> SelectBy(ProcessSelectBy formData)
+    public List<Process> SelectBy(SelectBy formData)
     {
         DateTime fromDate = DateTime.MinValue;
         DateTime toDate = DateTime.MaxValue;
@@ -55,5 +53,100 @@ public class ProcessRepository : IProcessRepository
     public List<Process> SelectAll()
     {
         return _dbContext.Processes.Include(m => m.Order).Include(m => m.ProcessParameters).ToList();
+    }
+
+    public bool AddParameter(int processId, int parameterId, string value)
+    {
+        var process = _dbContext.Processes.FirstOrDefault(m => m.Id == processId);
+        var parameter = _dbContext.Parameters.FirstOrDefault(m => m.Id == parameterId);
+
+        if (process == null || parameter == null)
+        {
+            return false; 
+        }
+
+        var newProcessParameter = new ProcessParameter
+        {
+            ProcessId = processId,
+            ParameterId = parameterId,
+            Value = value
+        };
+
+        _dbContext.ProcessParameters.Add(newProcessParameter);
+
+        _dbContext.SaveChanges();
+        return true; 
+    }
+
+    public bool AddNew(string serialNumber, int orderId)
+    {
+
+        var order = _dbContext.Orders.FirstOrDefault(m => m.Id == orderId);
+
+        if (order == null)
+        {
+            return false; 
+        }
+
+        var newProcess = new Process
+        {
+            SerialNumber = serialNumber,
+            OrderId = orderId,
+            DateTime = DateTime.Now
+        };
+
+        _dbContext.Processes.Add(newProcess);
+        _dbContext.SaveChanges();
+
+        return true; 
+    }
+
+    public bool ChangeOrder(int processId, int orderId)
+    {
+        var process = _dbContext.Processes.FirstOrDefault(m => m.Id == processId);
+        var order = _dbContext.Orders.FirstOrDefault(m => m.Id == orderId);
+
+        if (order == null || process == null)
+        {
+            return false; 
+        }
+
+        process.OrderId = orderId;
+
+        _dbContext.SaveChanges();
+        return true; 
+    }
+
+    public bool Update(Change change)
+    {
+        var process = _dbContext.Processes.FirstOrDefault(m => m.Id == change.ProcessId);
+        var order = _dbContext.Orders.FirstOrDefault(m => m.Id == change.OrderId);
+
+        if (order == null || process == null)
+        {
+            return false; 
+        }
+
+        process.SerialNumber = change.SerialNumber;
+        process.OrderId = change.OrderId;
+
+        _dbContext.SaveChanges();
+        return true; 
+    }
+
+    public bool Delete(int processId)
+    {
+        var process = _dbContext.Processes.FirstOrDefault(m => m.Id == processId);
+
+        if (process == null)
+        {
+            return false; 
+        }
+
+        _dbContext.Processes.Remove(process);
+
+        _dbContext.SaveChanges();
+
+        return true; 
     }
 }

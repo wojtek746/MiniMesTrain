@@ -221,10 +221,7 @@
                 DateTimeTo
             };
 
-            console.log(requestBody)
-
-            fetch('http://localhost:5001/process/selectBy', { //${processId}/${serialNumber}/${orderId}/${orderCode}/${machineId}/${productId}/${quantity}/${processParameterId}
-            //${ParameterId}/${processParameterValue}/${encodeURIComponent(DateTimeFrom)}/${encodeURIComponent(DateTimeTo)}`, {
+            fetch('http://localhost:5001/process/selectBy', { 
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
