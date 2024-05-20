@@ -43,6 +43,8 @@ namespace MiniMesTrainApi
                 builder.Services.AddDbContext<MiniProductionDbContext>(options => options.UseSqlServer(connString));
             }
 
+            builder.Services.AddScoped<IProcessRepository, ProcessRepository>();
+
             var app = builder.Build();
 
             if (app.Environment.IsDevelopment())

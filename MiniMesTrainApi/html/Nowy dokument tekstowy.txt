@@ -1,8 +1,23 @@
 mediator
 #FromBody
-wzorzec repozytorium
+#wzorzec repozytorium
 warstwy abstrakcji
-typy/klasy/obiekty generyczne (interface; dziedziczenie)
+#typy/klasy/obiekty generyczne (interface; dziedziczenie) => generyki działają z dowolnym typem danych
 dependency injection
 serwisy w aplikacjach .NET
-interface a klasa (implementacja)
+#interface a klasa (implementacja) => 
+public interface IAnimal
+{
+    string Name { get; set; }
+    void Speak();
+}
+
+public class Dog : IAnimal
+{
+    public string Name { get; set; }
+
+    public void Speak()
+    {
+        Console.WriteLine("The dog barks.");
+    }
+}

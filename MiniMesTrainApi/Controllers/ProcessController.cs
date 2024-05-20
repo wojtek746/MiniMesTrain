@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.SqlServer.Server;
 using MiniMesTrainApi.html;
 using MiniMesTrainApi.Models;
 using MiniMesTrainApi.Persistance;
@@ -17,10 +18,12 @@ namespace MiniMesTrainApi.Controllers
     public class ProcessController : Controller
     {
         private readonly MiniProductionDbContext _dbContext;
+        private readonly IProcessRepository _processRepository;
 
-        public ProcessController(MiniProductionDbContext dbContext)
+        public ProcessController(MiniProductionDbContext dbContext, IProcessRepository processRepository)
         {
             _dbContext = dbContext;
+            _processRepository = processRepository;
         }
 
 
@@ -189,7 +192,7 @@ namespace MiniMesTrainApi.Controllers
         [Route("selectAll")]
         public IActionResult SelectAll()
         {
-            List<Process> process = _dbContext.Processes.Include(m => m.Order).Include(m => m.ProcessParameters).ToList();
+            var process = _processRepository.SelectAll();
 
             var processWithExtraProperties = process.Select(process => new
             {
@@ -252,45 +255,14 @@ namespace MiniMesTrainApi.Controllers
             });
             return Ok(processWithExtraProperties);
         }*/
-
+         
         [HttpPost]
         [Route("selectBy")]
         public IActionResult selectBy([FromBody] ProcessSelectBy formData)
         {
-            DateTime fromDate = DateTime.MinValue;
-            DateTime toDate = DateTime.MaxValue;
-            try
-            {
-                fromDate = DateTime.ParseExact(formData.DateTimeFrom, "MM/dd/yyyy", CultureInfo.InvariantCulture); 
-            } catch (FormatException ex){}
-            try
-            {
-                toDate = DateTime.ParseExact(formData.DateTimeTo, "MM/dd/yyyy", CultureInfo.InvariantCulture);
-            } catch (FormatException ex){}
+            var processes = _processRepository.SelectBy(formData);
 
-            var process = new List<Process>();
-
-            var optionsBuilder = new DbContextOptionsBuilder<MiniProductionDbContext>();
-            optionsBuilder.UseSqlServer("Data Source = localhost\\SQLEXPRESS02; Initial Catalog = MiniProductionTrainDb; Persist Security Info=True; Integrated Security=SSPI; Connection Timeout = 15; TrustServerCertificate=True; ");
-
-            using (var dbContext = new MiniProductionDbContext(optionsBuilder.Options))
-            {
-                var query = dbContext.Processes.Where(m => m.DateTime >= fromDate).Where(m => m.DateTime <= toDate).AsQueryable();
-                if (formData.ProcessId > 0) query = query.Where(m => m.Id == formData.ProcessId);
-                if (formData.SerialNumber != "null") query = query.Where(m => m.SerialNumber == formData.SerialNumber);
-                if (formData.OrderId > 0) query = query.Where(m => m.OrderId == formData.OrderId);
-                query = query.Include(m => m.Order);
-                if (formData.OrderCode != "null") query = query.Where(m => m.Order.Code.Contains(formData.OrderCode));
-                if (formData.MachineId > 0) query = query.Where(m => m.Order.MachineId == formData.MachineId);
-                if (formData.ProductId > 0) query = query.Where(m => m.Order.ProductId == formData.ProductId);
-                if (formData.Quantity > 0) query = query.Where(m => m.Order.Quantity == formData.Quantity);
-                query = query.Include(m => m.ProcessParameters);
-                if (formData.ProcessParameterId > 0) query = query.Where(m => m.ProcessParameters.Any(p => p.Id == formData.ProcessParameterId));
-                if (formData.ProcessParameterValue != "null") query = query.Where(m => m.ProcessParameters.Any(p => p.Value.Contains(formData.ProcessParameterValue)));
-                process = query.ToList();
-            }
-
-            var processWithExtraProperties = process.Select(process => new
+            var processWithExtraProperties = processes.Select(process => new
             {
                 process.Id,
                 process.SerialNumber,
