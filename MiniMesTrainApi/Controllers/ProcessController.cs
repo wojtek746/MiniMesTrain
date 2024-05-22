@@ -20,7 +20,6 @@ namespace MiniMesTrainApi.Controllers
     {
         private readonly MiniProductionDbContext _dbContext;
         private readonly ProcessRepository _processRepository;
-        private readonly IOrderRepository _orderRepository;
 
         public ProcessController(MiniProductionDbContext dbContext, ProcessRepository processRepository)
         {
@@ -31,14 +30,14 @@ namespace MiniMesTrainApi.Controllers
 
         [HttpPost]
         [Route("addNew")]
-        public IActionResult AddNew([FromBody] AddNew newProcessDto)
+        public IActionResult AddNew([FromBody] ProcessAddNew newProcessDto)
         {
             if (string.IsNullOrEmpty(newProcessDto.SerialNumber))
             {
                 return BadRequest("Name or description cannot be empty.");
             }
 
-            if (_processRepository.AddNew(newProcessDto.SerialNumber, newProcessDto.OrderId))
+            if (_processRepository.AddNew(newProcessDto))
             {
                 return Ok("Process added successfully.");
             }
@@ -50,7 +49,7 @@ namespace MiniMesTrainApi.Controllers
 
         [HttpPost]
         [Route("addParameter")]
-        public IActionResult AddParameter([FromBody] AddParameter addParameter)
+        public IActionResult AddParameter([FromBody] ProcessAddParameter addParameter)
         {
             if (string.IsNullOrEmpty(addParameter.Value))
             {
@@ -69,9 +68,9 @@ namespace MiniMesTrainApi.Controllers
 
         [HttpPost]
         [Route("changeOrder")]
-        public IActionResult ChangeOrder([FromBody] ChangeOrder changeOrder)
+        public IActionResult UpdateOrder([FromBody] ProcessUpdateOrder updateOrder)
         {
-            if (_processRepository.ChangeOrder(changeOrder.ProcessId, changeOrder.OrderId))
+            if (_processRepository.UpdateOrder(updateOrder.ProcessId, updateOrder.OrderId))
             {
                 return Ok("Order added to machine successfully.\nNow go to selectAll");
             }
@@ -84,14 +83,14 @@ namespace MiniMesTrainApi.Controllers
 
         [HttpPost]
         [Route("change")]
-        public IActionResult Change([FromBody] Change change)
+        public IActionResult Update([FromBody] ProcessUpdate update)
         {
-            if (string.IsNullOrEmpty(change.SerialNumber))
+            if (string.IsNullOrEmpty(update.SerialNumber))
             {
                 return BadRequest("Name or description cannot be empty.");
             }
 
-            if (_processRepository.Update(change))
+            if (_processRepository.Update(update))
             {
                 return Ok("Machine added successfully.");
             }
@@ -139,7 +138,7 @@ namespace MiniMesTrainApi.Controllers
 
         [HttpPost]
         [Route("selectBy")]
-        public IActionResult selectBy([FromBody] SelectBy formData)
+        public IActionResult selectBy([FromBody] ProcessSelectBy formData)
         {
             var processes = _processRepository.SelectBy(formData);
 

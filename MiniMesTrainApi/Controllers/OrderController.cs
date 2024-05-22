@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MiniMesTrainApi.FromBodys.process;
 using MiniMesTrainApi.Models;
 using MiniMesTrainApi.Persistance;
+using MiniMesTrainApi.Repository;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,133 +13,76 @@ namespace MiniMesTrainApi.Controllers
     public class OrderController : Controller
     {
         private readonly MiniProductionDbContext _dbContext;
+        private readonly OrderRepository _orderRepository;
 
-        public OrderController(MiniProductionDbContext dbContext)
+        public OrderController(MiniProductionDbContext dbContext, OrderRepository orderRepository)
         {
             _dbContext = dbContext;
+            _orderRepository = orderRepository; 
         }
 
 
         [HttpPost]
-        [Route("addNew/{code}/{machineId}/{productId}/{quantity}")]
-        public IActionResult AddNew([FromRoute] string code, [FromRoute] int machineId, [FromRoute] int productId, [FromRoute] int quantity)
+        [Route("addNew")]
+        public IActionResult AddNew([FromBody] OrderAddNew addNew)
         {
-            if (string.IsNullOrEmpty(code))
+            if (string.IsNullOrEmpty(addNew.Code))
             {
                 return BadRequest("Name or description cannot be empty.");
             }
 
-            try
+            if (_orderRepository.AddNew(addNew))
             {
-                var machine = _dbContext.Machines.Include(m => m.Orders).FirstOrDefault(m => m.Id == machineId);
-                var product = _dbContext.Products.Include(m => m.Orders).FirstOrDefault(m => m.Id == productId);
-
-                if (machine == null || product == null)
-                {
-                    return NotFound();
-                }
-
-                var newOrder = new Order
-                {
-                    Code = code,
-                    MachineId = machineId,
-                    ProductId = productId,
-                    Quantity = quantity
-                };
-
-                _dbContext.Orders.Add(newOrder);
-
-                _dbContext.SaveChanges();
-
                 return Ok("Product added successfully.");
             }
-            catch (Exception ex)
+            else
             {
-                return StatusCode(500, $"An error occurred while adding product: {ex.Message}");
+                return NotFound();
             }
         }
 
 
         [HttpPost]
-        [Route("changeMachine/{orderId}/{machineId}")]
-        public IActionResult ChangeMachine([FromRoute] int orderId, [FromRoute] int machineId)
+        [Route("changeMachine")]
+        public IActionResult UpdateMachine([FromBody] OrderUpdateMachine updateMachine)
         {
-            try
+            if (_orderRepository.UpdateMachine(updateMachine))
             {
-                var order = _dbContext.Orders.Include(m => m.Product).Include(m => m.Machine).FirstOrDefault(m => m.Id == orderId);
-                var machine = _dbContext.Machines.Include(m => m.Orders).FirstOrDefault(m => m.Id == machineId);
-
-                if (order == null || machine == null)
-                {
-                    return NotFound();
-                }
-
-                order.MachineId = machineId;
-                order.Machine = machine;
-
-                _dbContext.SaveChanges();
-
                 return Ok("Product added successfully.");
             }
-            catch (Exception ex)
+            else
             {
-                return StatusCode(500, $"An error occurred while adding product: {ex.Message}");
+                return NotFound();
             }
         }
 
 
         [HttpPost]
-        [Route("changeProduct/{orderId}/{productId}")]
-        public IActionResult ChangeProduct([FromRoute] int orderId, [FromRoute] int productId)
+        [Route("changeProduct")]
+        public IActionResult UpdateProduct([FromBody] OrderUpdateProduct updateProduct)
         {
-            try
+            if (_orderRepository.UpdateProduct(updateProduct))
             {
-                var order = _dbContext.Orders.Include(m => m.Product).Include(m => m.Machine).FirstOrDefault(m => m.Id == orderId);
-                var product = _dbContext.Products.Include(m => m.Orders).FirstOrDefault(m => m.Id == productId);
-                if (order == null || product == null)
-                {
-                    return NotFound();
-                }
-
-                order.ProductId = productId;
-
-                _dbContext.SaveChanges();
-
                 return Ok("Product added successfully.");
             }
-            catch (Exception ex)
+            else
             {
-                return StatusCode(500, $"An error occurred while adding product: {ex.Message}");
+                return NotFound();
             }
         }
 
 
         [HttpPost]
-        [Route("change/{orderId}/{code}/{machineId}/{productId}/{quantity}")]
-        public IActionResult Change([FromRoute] int orderId, [FromRoute] string code, [FromRoute] int machineId, [FromRoute] int productId, [FromRoute] int quantity)
+        [Route("change")]
+        public IActionResult Update([FromBody] OrderUpdate update)
         {
-            try
+            if (_orderRepository.Update(update))
             {
-                var order = _dbContext.Orders.Include(m => m.Product).Include(m => m.Machine).FirstOrDefault(m => m.Id == orderId);
-                var product = _dbContext.Products.FirstOrDefault(m => m.Id == productId);
-                var machine = _dbContext.Machines.FirstOrDefault(m => m.Id == machineId);
-                if (order == null || product == null || machine == null)
-                {
-                    return NotFound();
-                }
-
-                order.Code = code;
-                order.MachineId = machineId;
-                order.ProductId = productId;
-                order.Quantity = quantity;
-
-                _dbContext.SaveChanges();
-
                 return Ok("Product added successfully.");
             }
-            catch (Exception ex)
+            else
             {
-                return StatusCode(500, $"An error occurred while adding product: {ex.Message}");
+                return NotFound();
             }
         }
 
@@ -146,24 +91,13 @@ namespace MiniMesTrainApi.Controllers
         [Route("delete/{orderId}")]
         public IActionResult Delete([FromRoute] int orderId)
         {
-            try
+            if (_orderRepository.Delete(orderId))
             {
-                var order = _dbContext.Orders.FirstOrDefault(m => m.Id == orderId);
-
-                if (order == null)
-                {
-                    return NotFound();
-                }
-
-                _dbContext.Orders.Remove(order);
-
-                _dbContext.SaveChanges();
-
                 return Ok("deleted succesfully");
             }
-            catch (Exception ex)
+            else
             {
-                return StatusCode(500, $"An error occurred while adding order to machine: {ex}.");
+                return NotFound();
             }
         }
 
@@ -172,7 +106,7 @@ namespace MiniMesTrainApi.Controllers
         [Route("selectAll")]
         public IActionResult SelectAll()
         {
-            List<Order> orders = _dbContext.Orders.Include(o => o.Machine).Include(o => o.Product).ToList();
+            var orders = _orderRepository.SelectAll(); 
 
             var ordersWithExtraProperties = orders.Select(order => new
             {

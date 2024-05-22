@@ -2,33 +2,33 @@
 
 namespace MiniMesTrainApi.FromBodys.process
 {
-    public class AddNew
+    public class ProcessAddNew
     {
         public string SerialNumber { get; set; }
         public int OrderId { get; set; }
     }
 
-    public class AddParameter
+    public class ProcessAddParameter
     {
         public int ProcessId { get; set; }
         public int ParameterId { get; set; }
         public string Value { get; set; }
     }
 
-    public class ChangeOrder
+    public class ProcessUpdateOrder
     {
         public int ProcessId { get; set; }
         public int OrderId { get; set; }
     }
 
-    public class Change
+    public class ProcessUpdate
     {
         public int ProcessId { get; set; }
         public string SerialNumber { get; set; }
         public int OrderId { get; set; }
     }
 
-    public class SelectBy
+    public class ProcessSelectBy
     {
         public int ProcessId { get; set; }
         public string SerialNumber { get; set; }

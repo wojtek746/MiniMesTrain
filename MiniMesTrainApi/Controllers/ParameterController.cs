@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MiniMesTrainApi.FromBodys.process;
+using MiniMesTrainApi.Migrations;
 using MiniMesTrainApi.Models;
 using MiniMesTrainApi.Persistance;
+using MiniMesTrainApi.Repository;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -13,139 +16,73 @@ namespace MiniMesTrainApi.Controllers
     public class ParameterController : Controller
     {
         private readonly MiniProductionDbContext _dbContext;
+        private readonly ParameterRepository _parameterRepository;
 
-        public ParameterController(MiniProductionDbContext dbContext)
+        public ParameterController(MiniProductionDbContext dbContext, ParameterRepository parameterRepository)
         {
             _dbContext = dbContext;
+            _parameterRepository = parameterRepository; 
         }
 
 
         [HttpPost]
-        [Route("addNew/{name}/{unit}")]
-        public IActionResult AddNew([FromRoute] string name, [FromRoute] string unit)
+        [Route("addNew")]
+        public IActionResult AddNew([FromBody] ParameterAddNew addNew)
         {
-            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(unit))
+            if (string.IsNullOrEmpty(addNew.Name) || string.IsNullOrEmpty(addNew.Unit))
             {
                 return BadRequest("Name or description cannot be empty.");
             }
 
-            try
+            _parameterRepository.AddNew(addNew);
+            return Ok("Order added to machine successfully.\nNow go to selectAll");
+        }
+
+        [HttpPost]
+        [Route("addMachine")]
+        public IActionResult AddMachine([FromBody] ParameterAddMachine addMachine)
+        {
+            if (_parameterRepository.AddMachine(addMachine))
             {
-                var newParameter = new Parameter
-                {
-                    Name = name,
-                    Unit = unit
-                };
-
-                _dbContext.Parameters.Add(newParameter);
-
-                _dbContext.SaveChanges();
-
                 return Ok("Order added to machine successfully.\nNow go to selectAll");
             }
-            catch (Exception ex)
+            else
             {
-                return StatusCode(500, $"An error occurred while adding order to machine: {ex.Message}");
+                return NotFound();
             }
         }
 
         [HttpPost]
-        [Route("addMachine/{parameterId}/{machineId}")]
-        public IActionResult AddMachine([FromRoute] int parameterId, [FromRoute] int machineId)
+        [Route("addOrder")]
+        public IActionResult AddOrder([FromBody] ParameterAddOrder addOrder)
         {
-            try
+            if (_parameterRepository.AddOrder(addOrder))
             {
-                var parameter = _dbContext.Parameters.FirstOrDefault(m => m.Id == parameterId);
-                if (parameter == null)
-                {
-                    return NotFound($"Machine with ID {parameterId} not found.");
-                }
-
-                var machine = _dbContext.ProcessParameters.FirstOrDefault(m => m.Id == machineId);
-                if (machine == null)
-                {
-                    return NotFound($"Order with ID {machineId} not found.");
-                }
-
-                var machineParameter = new MachineParameter
-                {
-                    MachineId = machineId,
-                    ParameterId = parameterId
-                };
-
-                _dbContext.MachineParameter.Add(machineParameter);
-
-                _dbContext.SaveChanges();
-
-                _dbContext.SaveChanges();
-
                 return Ok("Order added to machine successfully.\nNow go to selectAll");
             }
-            catch (Exception ex)
+            else
             {
-                return StatusCode(500, $"An error occurred while adding order to machine: {ex.Message}");
-            }
-        }
-
-        [HttpPost]
-        [Route("addOrder/{parameterId}/{processParameterId}")]
-        public IActionResult AddOrder([FromRoute] int parameterId, [FromRoute] int processParameterId)
-        {
-            try
-            {
-                var parameter = _dbContext.Parameters.FirstOrDefault(m => m.Id == parameterId);
-                if (parameter == null)
-                {
-                    return NotFound($"Machine with ID {parameterId} not found.");
-                }
-
-                var processParameter = _dbContext.ProcessParameters.FirstOrDefault(m => m.Id == processParameterId);
-                if (processParameter == null)
-                {
-                    return NotFound($"Order with ID {processParameterId} not found.");
-                }
-
-                processParameter.ParameterId = parameterId;
-
-                _dbContext.SaveChanges();
-
-                return Ok("Order added to machine successfully.\nNow go to selectAll");
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"An error occurred while adding order to machine: {ex.Message}");
+                return NotFound(); 
             }
         }
 
 
         [HttpPost]
-        [Route("change/{parameterId}/{name}/{unit}")]
-        public IActionResult Change([FromRoute] int parameterId, [FromRoute] string name, [FromRoute] string unit)
+        [Route("change")]
+        public IActionResult Update([FromBody] ParameterUpdate update)
         {
-            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(unit))
+            if (string.IsNullOrEmpty(update.Name) || string.IsNullOrEmpty(update.Unit))
             {
                 return BadRequest("Name or description cannot be empty.");
             }
 
-            try
+            if (_parameterRepository.Update(update))
             {
-                var parameter = _dbContext.Parameters.FirstOrDefault(m => m.Id == parameterId);
-
-                if (parameter == null)
-                {
-                    return NotFound();
-                }
-
-                parameter.Name = name;
-                parameter.Unit = unit;
-
-                _dbContext.SaveChanges();
-
                 return Ok("Order added to machine successfully.\nNow go to selectAll");
             }
-            catch (Exception ex)
+            else
             {
-                return StatusCode(500, $"An error occurred while adding order to machine: {ex.Message}");
+                return NotFound();
             }
         }
 
@@ -154,24 +91,13 @@ namespace MiniMesTrainApi.Controllers
         [Route("delete/{parameterId}")]
         public IActionResult Delete([FromRoute] int parameterId)
         {
-            try
+            if (_parameterRepository.Delete(parameterId))
             {
-                var parameter = _dbContext.Parameters.FirstOrDefault(m => m.Id == parameterId);
-
-                if (parameter == null)
-                {
-                    return NotFound();
-                }
-
-                _dbContext.Parameters.Remove(parameter);
-
-                _dbContext.SaveChanges();
-
                 return Ok("deleted succesfully");
             }
-            catch (Exception ex)
+            else
             {
-                return StatusCode(500, $"An error occurred while adding order to machine: {ex}.");
+                return NotFound();
             }
         }
 
@@ -180,7 +106,7 @@ namespace MiniMesTrainApi.Controllers
         [Route("selectAll")]
         public IActionResult SelectAll()
         {
-            List<Parameter> parameters = _dbContext.Parameters.Include(m => m.ProcessParameters).Include(m => m.MachineParameter).ToList();
+            List<Parameter> parameters = _parameterRepository.SelectAll();
 
             var parametersWithExtraProperties = parameters.Select(parameter => new
             {

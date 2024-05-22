@@ -3,14 +3,14 @@ using MiniMesTrainApi.Models;
 
 namespace MiniMesTrainApi.IRepository
 {
-    public interface IRepository
+    public interface IRepository<UpdateDto, SelectDto, AddDto> where UpdateDto : class where SelectDto : class where AddDto : class
     {
         //List<Process> SelectBy(SelectBy formData);
-        List<Process> SelectAll();
+        List<SelectDto> SelectAll();
         //bool AddParameter(int processId, int parameterId, string value);
-        bool AddNew(string serialNumber, int orderId);
+        bool AddNew(AddDto data);
         //bool ChangeOrder(int processId, int orderId);
-        bool Update<T>(T data) where T : class;
+        bool Update(UpdateDto data); 
         bool Delete(int Id);
     }
 }

@@ -8,7 +8,7 @@ using MiniMesTrainApi.Persistance;
 using System.Data.Common;
 using System.Globalization;
 
-public class ProcessRepository : IRepository
+public class ProcessRepository : IRepository<ProcessUpdate, Process, ProcessAddNew>
 {
     private readonly MiniProductionDbContext _dbContext;
 
@@ -17,7 +17,7 @@ public class ProcessRepository : IRepository
         _dbContext = dbContext;
     }
 
-    public List<Process> SelectBy(SelectBy formData)
+    public List<Process> SelectBy(ProcessSelectBy formData)
     {
         DateTime fromDate = DateTime.MinValue;
         DateTime toDate = DateTime.MaxValue;
@@ -78,10 +78,10 @@ public class ProcessRepository : IRepository
         return true; 
     }
 
-    public bool AddNew(string serialNumber, int orderId)
+    public bool AddNew(ProcessAddNew addNew)
     {
 
-        var order = _dbContext.Orders.FirstOrDefault(m => m.Id == orderId);
+        var order = _dbContext.Orders.FirstOrDefault(m => m.Id == addNew.OrderId);
 
         if (order == null)
         {
@@ -90,8 +90,8 @@ public class ProcessRepository : IRepository
 
         var newProcess = new Process
         {
-            SerialNumber = serialNumber,
-            OrderId = orderId,
+            SerialNumber = addNew.SerialNumber,
+            OrderId = addNew.OrderId,
             DateTime = DateTime.Now
         };
 
@@ -101,7 +101,7 @@ public class ProcessRepository : IRepository
         return true; 
     }
 
-    public bool ChangeOrder(int processId, int orderId)
+    public bool UpdateOrder(int processId, int orderId)
     {
         var process = _dbContext.Processes.FirstOrDefault(m => m.Id == processId);
         var order = _dbContext.Orders.FirstOrDefault(m => m.Id == orderId);
@@ -117,18 +117,18 @@ public class ProcessRepository : IRepository
         return true; 
     }
 
-    public bool Update(Change change)
+    public bool Update(ProcessUpdate update)
     {
-        var process = _dbContext.Processes.FirstOrDefault(m => m.Id == change.ProcessId);
-        var order = _dbContext.Orders.FirstOrDefault(m => m.Id == change.OrderId);
+        var process = _dbContext.Processes.FirstOrDefault(m => m.Id == update.ProcessId);
+        var order = _dbContext.Orders.FirstOrDefault(m => m.Id == update.OrderId);
 
         if (order == null || process == null)
         {
             return false; 
         }
 
-        process.SerialNumber = change.SerialNumber;
-        process.OrderId = change.OrderId;
+        process.SerialNumber = update.SerialNumber;
+        process.OrderId = update.OrderId;
 
         _dbContext.SaveChanges();
         return true; 
