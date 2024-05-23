@@ -64,8 +64,17 @@
             const machineId = document.getElementById('machineId').value;
             const parameterId = document.getElementById('parameterId').value;
 
-            fetch(`http://localhost:5001/machine/addParameter/${machineId}/${parameterId}`, {
-                method: 'POST'
+            const data = {
+                machineId: machineId,
+                parameterId: parameterId
+            }
+
+            fetch(`http://localhost:5001/machine/addParameter`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
             })
                 .then(response => {
                     if (response.ok) {

@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MiniMesTrainApi.FromBodys.process;
 using MiniMesTrainApi.Models;
 using MiniMesTrainApi.Persistance;
+using MiniMesTrainApi.Repository;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,135 +16,79 @@ namespace MiniMesTrainApi.Controllers
     public class ProcessParameterController : Controller
     {
         private readonly MiniProductionDbContext _dbContext;
+        private readonly ProcessParameterRepository _processParameterRepository;
 
-        public ProcessParameterController(MiniProductionDbContext dbContext)
+        public ProcessParameterController(MiniProductionDbContext dbContext, ProcessParameterRepository processParameterRepository)
         {
             _dbContext = dbContext;
+            _processParameterRepository = processParameterRepository; 
         }
 
 
         [HttpPost]
-        [Route("addNew/{processId}/{parameterId}/{value}")]
-        public IActionResult AddNew([FromRoute] int processId, [FromRoute] int parameterId, [FromRoute] string value)
+        [Route("addNew")]
+        public IActionResult AddNew([FromBody] ProcessParameterAddNew addNew)
         {
-            if (string.IsNullOrEmpty(value))
+            if (string.IsNullOrEmpty(addNew.Value))
             {
                 return BadRequest("Name or description cannot be empty.");
             }
 
-            try
+            if (_processParameterRepository.AddNew(addNew))
             {
-                var process = _dbContext.Processes.FirstOrDefault(m => m.Id == processId);
-                var parameter = _dbContext.Parameters.FirstOrDefault(m => m.Id == parameterId);
-
-                if (process == null || parameter == null)
-                {
-                    return NotFound();
-                }
-
-                var newProcessParameter = new ProcessParameter
-                {
-                    ProcessId = processId,
-                    ParameterId = parameterId,
-                    Value = value,
-
-                };
-
-                _dbContext.ProcessParameters.Add(newProcessParameter);
-
-                _dbContext.SaveChanges();
-
                 return Ok("Order added to machine successfully.\nNow go to selectAll");
             }
-            catch (Exception ex)
+            else
             {
-                return StatusCode(500, $"An error occurred while adding order to machine: {ex.Message}");
+                return NotFound();
             }
         }
 
         [HttpPost]
-        [Route("changeProcess/{processParameterId}/{processId}")]
-        public IActionResult ChangeOrder([FromRoute] int processParameterId, [FromRoute] int processId)
+        [Route("changeProcess")]
+        public IActionResult UpdateProcess([FromBody] ProcessParameterUpdateProcess updateProcess)
         {
-            try
+            if (_processParameterRepository.UpdateProcess(updateProcess))
             {
-                var process = _dbContext.Processes.FirstOrDefault(m => m.Id == processId);
-                var processParameter = _dbContext.ProcessParameters.FirstOrDefault(m => m.Id == processParameterId);
-
-                if (processParameter == null || process == null)
-                {
-                    return NotFound();
-                }
-
-                processParameter.ProcessId = processId;
-
-                _dbContext.SaveChanges();
-
                 return Ok("Order added to machine successfully.\nNow go to selectAll");
             }
-            catch (Exception ex)
+            else
             {
-                return StatusCode(500, $"An error occurred while adding order to machine: {ex.Message}");
+                return NotFound();
             }
         }
 
         [HttpPost]
-        [Route("changeParameter/{processParameterId}/{parameterId}")]
-        public IActionResult ChangeParameter([FromRoute] int processParameterId, [FromRoute] int parameterId)
+        [Route("changeParameter")]
+        public IActionResult UpdateParameter([FromBody] ProcessParameterUpdateParameter updateParameter)
         {
-            try
+            if (_processParameterRepository.UpdateParameter(updateParameter))
             {
-                var parameter = _dbContext.Parameters.FirstOrDefault(m => m.Id == parameterId);
-                var processParameter = _dbContext.ProcessParameters.FirstOrDefault(m => m.Id == processParameterId);
-
-                if (processParameter == null || parameter == null)
-                {
-                    return NotFound();
-                }
-
-                processParameter.ParameterId = parameterId;
-
-                _dbContext.SaveChanges();
-
                 return Ok("Order added to machine successfully.\nNow go to selectAll");
             }
-            catch (Exception ex)
+            else
             {
-                return StatusCode(500, $"An error occurred while adding order to machine: {ex.Message}");
+                return NotFound();
             }
         }
 
 
         [HttpPost]
-        [Route("change/{processParameterId}/{processId}/{parameterId}/{value}")]
-        public IActionResult Change([FromRoute] int processParameterId, [FromRoute] int processId, [FromRoute] int parameterId, [FromRoute] string value)
+        [Route("change")]
+        public IActionResult Update([FromBody] ProcessParameterUpdate update)
         {
-            if (string.IsNullOrEmpty(value))
+            if (string.IsNullOrEmpty(update.Value))
             {
                 return BadRequest("Name or description cannot be empty.");
             }
 
-            try
+            if (_processParameterRepository.Update(update))
             {
-                var processParameter = _dbContext.ProcessParameters.FirstOrDefault(m => m.Id == processParameterId); 
-                var process = _dbContext.Processes.FirstOrDefault(m => m.Id == processId);
-                var parameter = _dbContext.Parameters.FirstOrDefault(m => m.Id == parameterId);
-
-                if (process == null || parameter == null || processParameter == null)
-                {
-                    return NotFound();
-                }
-                processParameter.ProcessId = processId;
-                processParameter.ParameterId = parameterId;
-                processParameter.Value = value;
-
-                _dbContext.SaveChanges();
-
                 return Ok("Order added to machine successfully.\nNow go to selectAll");
             }
-            catch (Exception ex)
+            else
             {
-                return StatusCode(500, $"An error occurred while adding order to machine: {ex.Message}");
+                return NotFound();
             }
         }
 
@@ -151,24 +97,13 @@ namespace MiniMesTrainApi.Controllers
         [Route("delete/{processParameterId}")]
         public IActionResult Delete([FromRoute] int processParameterId)
         {
-            try
+            if (_processParameterRepository.Delete(processParameterId))
             {
-                var processParameter = _dbContext.ProcessParameters.FirstOrDefault(m => m.Id == processParameterId);
-
-                if (processParameter == null)
-                {
-                    return NotFound();
-                }
-
-                _dbContext.ProcessParameters.Remove(processParameter);
-
-                _dbContext.SaveChanges();
-
                 return Ok("deleted succesfully");
             }
-            catch (Exception ex)
+            else
             {
-                return StatusCode(500, $"An error occurred while adding order to machine: {ex}.");
+                return NotFound();
             }
         }
 
@@ -177,7 +112,7 @@ namespace MiniMesTrainApi.Controllers
         [Route("selectAll")]
         public IActionResult SelectAll()
         {
-            List<ProcessParameter> processParameter = _dbContext.ProcessParameters.Include(m => m.Process).Include(m => m.Parameter).ToList();
+            List<ProcessParameter> processParameter = _processParameterRepository.SelectAll();
 
             var processParameterWithExtraProperties = processParameter.Select(processParameter => new
             {

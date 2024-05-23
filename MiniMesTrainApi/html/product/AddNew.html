@@ -63,8 +63,17 @@
             const name = document.getElementById('name').value;
             const description = document.getElementById('description').value;
 
-            fetch(`http://localhost:5001/product/addNew/${name}/${description}`, {
-                method: 'POST'
+            const data = {
+                name: name,
+                description: description
+            }
+
+            fetch(`http://localhost:5001/product/addNew`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
             })
                 .then(response => {
                     if (response.ok) {

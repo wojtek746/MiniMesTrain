@@ -67,9 +67,9 @@ namespace MiniMesTrainApi.Repository
             return true;
         }
 
-        public bool Delete(int ProductId)
+        public bool Delete(int productId)
         {
-            var Product = _dbContext.Products.FirstOrDefault(m => m.Id == ProductId);
+            var Product = _dbContext.Products.FirstOrDefault(m => m.Id == productId);
 
             if (Product == null)
             {

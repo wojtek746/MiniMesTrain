@@ -64,8 +64,17 @@
             const processParameterId = document.getElementById('processParameterId').value;
             const processId = document.getElementById('processId').value;
 
-            fetch(`http://localhost:5001/processParameter/changeProcess/${processParameterId}/${processId}`, {
-                method: 'POST'
+            const data = {
+                processParameterId: processParameterId,
+                processId: processId
+            }
+
+            fetch(`http://localhost:5001/processParameter/changeProcess`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
             })
                 .then(response => {
                     if (response.ok) {

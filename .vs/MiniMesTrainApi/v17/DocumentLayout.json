@@ -3,48 +3,96 @@
   "WorkspaceRootPath": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\repository\\parameterrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\repository\\parameterrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\controllers\\parametercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\controllers\\parametercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\frombodys\\parameter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\frombodys\\parameter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\frombodys\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\frombodys\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\repository\\processrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\repository\\processrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\repository\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\repository\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\frombodys\\process.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\frombodys\\process.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\irepository\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\irepository\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\controllers\\processcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\controllers\\processcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\repository\\machinerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\repository\\machinerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\controllers\\machinecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\controllers\\machinecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\html\\product\\change.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\html\\product\\change.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\html\\product\\addnew.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\html\\product\\addnew.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\html\\product\\addorder.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\html\\product\\addorder.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\html\\processparameter\\changeprocess.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\html\\processparameter\\changeprocess.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\html\\processparameter\\changeparameter.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\html\\processparameter\\changeparameter.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\html\\processparameter\\change.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\html\\processparameter\\change.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\html\\processparameter\\addnew.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\html\\processparameter\\addnew.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\html\\process\\addparameter.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\html\\process\\addparameter.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\html\\parameter\\change.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\html\\parameter\\change.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\html\\parameter\\addprocessparameter.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\html\\parameter\\addprocessparameter.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\html\\parameter\\addnew.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\html\\parameter\\addnew.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\html\\order\\changeproduct.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\html\\order\\changeproduct.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\html\\order\\changemachine.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\html\\order\\changemachine.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\html\\order\\change.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\html\\order\\change.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\html\\order\\addnew.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\html\\order\\addnew.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\html\\machine\\addorder.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\html\\machine\\addorder.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\html\\machine\\addparameter.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\html\\machine\\addparameter.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\html\\machine\\change.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\html\\machine\\change.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\html\\machine\\addnew.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\html\\machine\\addnew.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|c:\\users\\wojtek746\\desktop\\visualstudio\\minimestrain-main\\src\\github\\minimestrain\\minimestrainapi\\html\\process\\addnew.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{1E8B44C7-3223-4336-8A3B-E15F7AC494E1}|MiniMesTrainApi\\MiniMesTrainApi.csproj|solutionrelative:minimestrainapi\\html\\process\\addnew.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,149 +102,305 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 21,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ParameterRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\Repository\\ParameterRepository.cs",
-              "RelativeDocumentMoniker": "MiniMesTrainApi\\Repository\\ParameterRepository.cs",
-              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\Repository\\ParameterRepository.cs",
-              "RelativeToolTip": "MiniMesTrainApi\\Repository\\ParameterRepository.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAA1wBYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T13:23:22.737Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ParameterController.cs",
-              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\Controllers\\ParameterController.cs",
-              "RelativeDocumentMoniker": "MiniMesTrainApi\\Controllers\\ParameterController.cs",
-              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\Controllers\\ParameterController.cs",
-              "RelativeToolTip": "MiniMesTrainApi\\Controllers\\ParameterController.cs",
-              "ViewState": "AQIAAJoAAAAAAAAAAAAcwLYAAACLAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T13:23:15.992Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Parameter.cs",
-              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\FromBodys\\Parameter.cs",
-              "RelativeDocumentMoniker": "MiniMesTrainApi\\FromBodys\\Parameter.cs",
-              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\FromBodys\\Parameter.cs",
-              "RelativeToolTip": "MiniMesTrainApi\\FromBodys\\Parameter.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T13:22:16.32Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Process.cs",
-              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\FromBodys\\Process.cs",
-              "RelativeDocumentMoniker": "MiniMesTrainApi\\FromBodys\\Process.cs",
-              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\FromBodys\\Process.cs",
-              "RelativeToolTip": "MiniMesTrainApi\\FromBodys\\Process.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAowC4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T09:36:41.029Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Order.cs",
-              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\FromBodys\\Order.cs",
-              "RelativeDocumentMoniker": "MiniMesTrainApi\\FromBodys\\Order.cs",
-              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\FromBodys\\Order.cs",
-              "RelativeToolTip": "MiniMesTrainApi\\FromBodys\\Order.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T09:36:32.434Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\Program.cs",
               "RelativeDocumentMoniker": "MiniMesTrainApi\\Program.cs",
               "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\Program.cs",
               "RelativeToolTip": "MiniMesTrainApi\\Program.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAqwDwAAAAAAAAA",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T07:24:36.929Z",
+              "WhenOpened": "2024-05-23T10:09:52.371Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\IRepository\\IRepository.cs",
-              "RelativeDocumentMoniker": "MiniMesTrainApi\\IRepository\\IRepository.cs",
-              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\IRepository\\IRepository.cs",
-              "RelativeToolTip": "MiniMesTrainApi\\IRepository\\IRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T12:20:57.533Z",
+              "DocumentIndex": 3,
+              "Title": "Change.html",
+              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\product\\Change.html",
+              "RelativeDocumentMoniker": "MiniMesTrainApi\\html\\product\\Change.html",
+              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\product\\Change.html",
+              "RelativeToolTip": "MiniMesTrainApi\\html\\product\\Change.html",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAADoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-05-23T09:09:34.511Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "OrderRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\Repository\\OrderRepository.cs",
-              "RelativeDocumentMoniker": "MiniMesTrainApi\\Repository\\OrderRepository.cs",
-              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\Repository\\OrderRepository.cs",
-              "RelativeToolTip": "MiniMesTrainApi\\Repository\\OrderRepository.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAcwGUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T06:36:57.353Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "OrderController.cs",
-              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\Controllers\\OrderController.cs",
-              "RelativeDocumentMoniker": "MiniMesTrainApi\\Controllers\\OrderController.cs",
-              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\Controllers\\OrderController.cs",
-              "RelativeToolTip": "MiniMesTrainApi\\Controllers\\OrderController.cs",
-              "ViewState": "AQIAAE8AAAAAAAAAAAAcwGYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-21T09:10:49.924Z",
+              "Title": "AddOrder.html",
+              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\product\\AddOrder.html",
+              "RelativeDocumentMoniker": "MiniMesTrainApi\\html\\product\\AddOrder.html",
+              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\product\\AddOrder.html",
+              "RelativeToolTip": "MiniMesTrainApi\\html\\product\\AddOrder.html",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAAEMAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-05-23T09:09:26.935Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "ProcessRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\Repository\\ProcessRepository.cs",
-              "RelativeDocumentMoniker": "MiniMesTrainApi\\Repository\\ProcessRepository.cs",
-              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\Repository\\ProcessRepository.cs",
-              "RelativeToolTip": "MiniMesTrainApi\\Repository\\ProcessRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T06:08:06.835Z",
+              "Title": "AddNew.html",
+              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\product\\AddNew.html",
+              "RelativeDocumentMoniker": "MiniMesTrainApi\\html\\product\\AddNew.html",
+              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\product\\AddNew.html",
+              "RelativeToolTip": "MiniMesTrainApi\\html\\product\\AddNew.html",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAAD8AAABNAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-05-23T09:09:18.503Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ChangeProcess.html",
+              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\processParameter\\ChangeProcess.html",
+              "RelativeDocumentMoniker": "MiniMesTrainApi\\html\\processParameter\\ChangeProcess.html",
+              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\processParameter\\ChangeProcess.html",
+              "RelativeToolTip": "MiniMesTrainApi\\html\\processParameter\\ChangeProcess.html",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAAEAAAABJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-05-23T09:09:04.326Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ChangeParameter.html",
+              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\processParameter\\ChangeParameter.html",
+              "RelativeDocumentMoniker": "MiniMesTrainApi\\html\\processParameter\\ChangeParameter.html",
+              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\processParameter\\ChangeParameter.html",
+              "RelativeToolTip": "MiniMesTrainApi\\html\\processParameter\\ChangeParameter.html",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAAEAAAABNAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-05-23T09:08:55.367Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Change.html",
+              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\processParameter\\Change.html",
+              "RelativeDocumentMoniker": "MiniMesTrainApi\\html\\processParameter\\Change.html",
+              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\processParameter\\Change.html",
+              "RelativeToolTip": "MiniMesTrainApi\\html\\processParameter\\Change.html",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAAEoAAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-05-23T09:08:45.71Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "ProcessController.cs",
-              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\Controllers\\ProcessController.cs",
-              "RelativeDocumentMoniker": "MiniMesTrainApi\\Controllers\\ProcessController.cs",
-              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\Controllers\\ProcessController.cs",
-              "RelativeToolTip": "MiniMesTrainApi\\Controllers\\ProcessController.cs",
-              "ViewState": "AQIAAGwAAAAAAAAAAAAmwIkAAAAAAAAA",
+              "Title": "AddNew.html",
+              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\processParameter\\AddNew.html",
+              "RelativeDocumentMoniker": "MiniMesTrainApi\\html\\processParameter\\AddNew.html",
+              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\processParameter\\AddNew.html",
+              "RelativeToolTip": "MiniMesTrainApi\\html\\processParameter\\AddNew.html",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAAEUAAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-05-23T09:08:35.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AddParameter.html",
+              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\process\\AddParameter.html",
+              "RelativeDocumentMoniker": "MiniMesTrainApi\\html\\process\\AddParameter.html",
+              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\process\\AddParameter.html",
+              "RelativeToolTip": "MiniMesTrainApi\\html\\process\\AddParameter.html",
+              "ViewState": "AQIAADMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-05-23T09:08:29.662Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Change.html",
+              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\parameter\\Change.html",
+              "RelativeDocumentMoniker": "MiniMesTrainApi\\html\\parameter\\Change.html",
+              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\parameter\\Change.html",
+              "RelativeToolTip": "MiniMesTrainApi\\html\\parameter\\Change.html",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAAEQAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-05-23T09:08:17.534Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AddProcessParameter.html",
+              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\parameter\\AddProcessParameter.html",
+              "RelativeDocumentMoniker": "MiniMesTrainApi\\html\\parameter\\AddProcessParameter.html",
+              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\parameter\\AddProcessParameter.html",
+              "RelativeToolTip": "MiniMesTrainApi\\html\\parameter\\AddProcessParameter.html",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAAD8AAABbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-05-23T09:08:06.526Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "AddNew.html",
+              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\parameter\\AddNew.html",
+              "RelativeDocumentMoniker": "MiniMesTrainApi\\html\\parameter\\AddNew.html",
+              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\parameter\\AddNew.html",
+              "RelativeToolTip": "MiniMesTrainApi\\html\\parameter\\AddNew.html",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAAD8AAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-05-23T09:07:58.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ChangeProduct.html",
+              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\order\\ChangeProduct.html",
+              "RelativeDocumentMoniker": "MiniMesTrainApi\\html\\order\\ChangeProduct.html",
+              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\order\\ChangeProduct.html",
+              "RelativeToolTip": "MiniMesTrainApi\\html\\order\\ChangeProduct.html",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAAEAAAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-05-23T08:29:09.981Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ChangeMachine.html",
+              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\order\\ChangeMachine.html",
+              "RelativeDocumentMoniker": "MiniMesTrainApi\\html\\order\\ChangeMachine.html",
+              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\order\\ChangeMachine.html",
+              "RelativeToolTip": "MiniMesTrainApi\\html\\order\\ChangeMachine.html",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAAEAAAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-05-23T08:28:57.637Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Change.html",
+              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\order\\Change.html",
+              "RelativeDocumentMoniker": "MiniMesTrainApi\\html\\order\\Change.html",
+              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\order\\Change.html",
+              "RelativeToolTip": "MiniMesTrainApi\\html\\order\\Change.html",
+              "ViewState": "AQIAADMAAAAAAAAAAAAAAE8AAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-05-23T08:28:48.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "AddNew.html",
+              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\order\\AddNew.html",
+              "RelativeDocumentMoniker": "MiniMesTrainApi\\html\\order\\AddNew.html",
+              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\order\\AddNew.html",
+              "RelativeToolTip": "MiniMesTrainApi\\html\\order\\AddNew.html",
+              "ViewState": "AQIAADYAAAAAAAAAAAAAAEoAAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-05-23T08:28:37.972Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Change.html",
+              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\machine\\Change.html",
+              "RelativeDocumentMoniker": "MiniMesTrainApi\\html\\machine\\Change.html",
+              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\machine\\Change.html",
+              "RelativeToolTip": "MiniMesTrainApi\\html\\machine\\Change.html",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAAEUAAABNAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-05-23T08:28:16.15Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "AddParameter.html",
+              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\machine\\AddParameter.html",
+              "RelativeDocumentMoniker": "MiniMesTrainApi\\html\\machine\\AddParameter.html",
+              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\machine\\AddParameter.html",
+              "RelativeToolTip": "MiniMesTrainApi\\html\\machine\\AddParameter.html",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAAEAAAABNAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-05-23T08:28:08.197Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "AddOrder.html",
+              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\machine\\AddOrder.html",
+              "RelativeDocumentMoniker": "MiniMesTrainApi\\html\\machine\\AddOrder.html",
+              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\machine\\AddOrder.html",
+              "RelativeToolTip": "MiniMesTrainApi\\html\\machine\\AddOrder.html",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAAEAAAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-05-23T08:27:57.389Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "AddNew.html",
+              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\process\\AddNew.html",
+              "RelativeDocumentMoniker": "MiniMesTrainApi\\html\\process\\AddNew.html",
+              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\process\\AddNew.html",
+              "RelativeToolTip": "MiniMesTrainApi\\html\\process\\AddNew.html",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAAFIAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-05-23T08:27:04.325Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "AddNew.html",
+              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\machine\\AddNew.html",
+              "RelativeDocumentMoniker": "MiniMesTrainApi\\html\\machine\\AddNew.html",
+              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\html\\machine\\AddNew.html",
+              "RelativeToolTip": "MiniMesTrainApi\\html\\machine\\AddNew.html",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAAAEAAAABNAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-05-23T08:26:19.742Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MachineRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\Repository\\MachineRepository.cs",
+              "RelativeDocumentMoniker": "MiniMesTrainApi\\Repository\\MachineRepository.cs",
+              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\Repository\\MachineRepository.cs",
+              "RelativeToolTip": "MiniMesTrainApi\\Repository\\MachineRepository.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAowCcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T06:46:41.421Z",
+              "WhenOpened": "2024-05-23T07:13:35.787Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MachineController.cs",
+              "DocumentMoniker": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\Controllers\\MachineController.cs",
+              "RelativeDocumentMoniker": "MiniMesTrainApi\\Controllers\\MachineController.cs",
+              "ToolTip": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\Controllers\\MachineController.cs",
+              "RelativeToolTip": "MiniMesTrainApi\\Controllers\\MachineController.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAEsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T07:13:07.691Z",
               "EditorCaption": ""
             }
           ]

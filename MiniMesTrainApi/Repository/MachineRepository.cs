@@ -3,7 +3,9 @@ using MiniMesTrainApi.FromBodys.process;
 using MiniMesTrainApi.IRepository;
 using MiniMesTrainApi.Models;
 using MiniMesTrainApi.Persistance;
+using System.Reflection.PortableExecutable;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using Machine = MiniMesTrainApi.Models.Machine;
 
 namespace MiniMesTrainApi.Repository
 {
@@ -88,9 +90,9 @@ namespace MiniMesTrainApi.Repository
             return true;
         }
 
-        public bool Delete(int MachineId)
+        public bool Delete(int machineId)
         {
-            var Machine = _dbContext.Machines.FirstOrDefault(m => m.Id == MachineId);
+            var Machine = _dbContext.Machines.FirstOrDefault(m => m.Id == machineId);
 
             if (Machine == null)
             {

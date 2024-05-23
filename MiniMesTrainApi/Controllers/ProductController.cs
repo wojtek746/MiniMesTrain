@@ -76,24 +76,13 @@ namespace MiniMesTrainApi.Controllers
         [Route("delete/{productId}")]
         public IActionResult Delete([FromRoute] int productId)
         {
-            try
+            if (_productRepository.Delete(productId))
             {
-                var product = _dbContext.Products.FirstOrDefault(m => m.Id == productId);
-
-                if (product == null)
-                {
-                    return NotFound();
-                }
-
-                _dbContext.Products.Remove(product);
-
-                _dbContext.SaveChanges();
-
                 return Ok("deleted succesfully");
             }
-            catch (Exception ex)
+            else
             {
-                return StatusCode(500, $"An error occurred while adding order to machine: {ex}.");
+                return NotFound();
             }
         }
 

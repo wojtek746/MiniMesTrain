@@ -64,8 +64,17 @@
             const machineId = document.getElementById('machineId').value;
             const orderId = document.getElementById('orderId').value;
 
-            fetch(`http://localhost:5001/order/changeMachine/${orderId}/${machineId}`, {
-                method: 'POST'
+            const data = {
+                orderId: orderId,
+                machineId: machineId,
+            }
+
+            fetch(`http://localhost:5001/order/changeMachine`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
             })
                 .then(response => {
                     if (response.ok) {

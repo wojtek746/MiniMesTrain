@@ -79,8 +79,20 @@
             const productId = document.getElementById('productId').value;
             const quantity = document.getElementById('quantity').value;
 
-            fetch(`http://localhost:5001/order/change/${orderId}/${code}/${machineId}/${productId}/${quantity}`, {
-                method: 'POST'
+            const data = {
+                code: code,
+                orderId: orderId, 
+                machineId: machineId,
+                productId: productId,
+                quantity: quantity
+            }
+
+            fetch(`http://localhost:5001/order/change`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
             })
                 .then(response => {
                     if (response.ok) {

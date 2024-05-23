@@ -68,8 +68,18 @@
             const name = document.getElementById('name').value;
             const description = document.getElementById('description').value;
 
-            fetch(`http://localhost:5001/product/change/${machineId}/${name}/${description}`, {
-                method: 'POST'
+            const data = {
+                machineId: machineId, 
+                name: name,
+                description: description
+            }
+
+            fetch(`http://localhost:5001/product/change`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
             })
                 .then(response => {
                     if (response.ok) {

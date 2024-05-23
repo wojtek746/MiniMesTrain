@@ -78,27 +78,16 @@ namespace MiniMesTrainApi.Controllers
         [Route("delete/{machineId}")]
         public IActionResult Delete([FromRoute] int machineId)
         {
-            try
+            if (_machineRepository.Delete(machineId))
             {
-                var machine = _dbContext.Machines.FirstOrDefault(m => m.Id == machineId);
-
-                if (machine == null)
-                {
-                    return NotFound();
-                }
-
-                _dbContext.Machines.Remove(machine);
-
-                _dbContext.SaveChanges();
-
-                return Ok("deleted succesfully"); 
+                return Ok("deleted succesfully");
             }
-            catch (Exception ex)
+            else
             {
-                return StatusCode(500, $"An error occurred while adding order to machine: {ex}.");
+                return NotFound();
             }
         }
-
+ 
         [HttpGet]
         [Route("selectAll")]
         public IActionResult SelectAll()

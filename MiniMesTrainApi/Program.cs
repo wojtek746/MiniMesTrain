@@ -45,7 +45,11 @@ namespace MiniMesTrainApi
             }
 
             builder.Services.AddScoped<ProcessRepository, ProcessRepository>();
-            builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+            builder.Services.AddScoped<OrderRepository, OrderRepository>();
+            builder.Services.AddScoped<MachineRepository, MachineRepository>();
+            builder.Services.AddScoped<ParameterRepository, ParameterRepository>();
+            builder.Services.AddScoped<ProcessParameterRepository, ProcessParameterRepository>();
+            builder.Services.AddScoped<ProductRepository, ProductRepository>();
 
             var app = builder.Build();
             

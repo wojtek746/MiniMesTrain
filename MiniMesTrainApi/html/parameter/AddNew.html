@@ -63,8 +63,17 @@
             const name = document.getElementById('name').value;
             const unit = document.getElementById('unit').value;
 
-            fetch(`http://localhost:5001/parameter/addNew/${name}/${unit}`, {
-                method: 'POST'
+            const data = {
+                name: name,
+                unit: unit,
+            }
+
+            fetch(`http://localhost:5001/parameter/addNew`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
             })
                 .then(response => {
                     if (response.ok) {
