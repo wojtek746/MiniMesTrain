@@ -10,14 +10,17 @@ namespace MiniMesTrainApi.Repository
     public class OrderRepository : IRepository<OrderUpdate, Order, OrderAddNew>
     {
         private readonly MiniProductionDbContext _dbContext;
+        private readonly ILogger<MachineRepository> _logger;
 
-        public OrderRepository(MiniProductionDbContext dbContext)
+        public OrderRepository(MiniProductionDbContext dbContext, ILogger<MachineRepository> logger)
         {
             _dbContext = dbContext;
+            _logger = logger; 
         }
 
         public List<Order> SelectAll()
         {
+            _logger.LogInformation($"Saw all Orders");
             return _dbContext.Orders.Include(o => o.Machine).Include(o => o.Product).ToList();
         }
 
@@ -28,6 +31,14 @@ namespace MiniMesTrainApi.Repository
 
             if (machine == null || product == null)
             {
+                if (machine == null)
+                {
+                    _logger.LogError($"Not found Machine with Id {addNew.MachineId}");
+                }
+                else
+                {
+                    _logger.LogError($"Not found Product with Id {addNew.ProductId}");
+                }
                 return false; 
             }
 
@@ -43,6 +54,8 @@ namespace MiniMesTrainApi.Repository
 
             _dbContext.SaveChanges();
 
+            _logger.LogInformation($"Successfully added Order on Id {newOrder.Id} with MachineId: {newOrder.MachineId} and ProductId: {newOrder.ProductId} and Quantity: {newOrder.Quantity}");
+
             return true; 
         }
 
@@ -53,13 +66,28 @@ namespace MiniMesTrainApi.Repository
 
             if (order == null || machine == null)
             {
+                if (machine == null)
+                {
+                    _logger.LogError($"Not found Machine with Id {updateMachine.MachineId}");
+                }
+                else
+                {
+                    _logger.LogError($"Not found Order with Id {updateMachine.OrderId}");
+                }
                 return false;
             }
+
+            var last = new
+            {
+                MachineId = order.MachineId
+            }; 
 
             order.MachineId = updateMachine.MachineId;
             order.Machine = machine;
 
             _dbContext.SaveChanges();
+
+            _logger.LogInformation($"Successfully update Machine from Id {last.MachineId} for {order.MachineId} in Order on Id {order.Id}");
 
             return true;
         }

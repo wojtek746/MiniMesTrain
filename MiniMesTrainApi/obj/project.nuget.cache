@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "GweAMKbzPJc3YL6D8Y5kgIYVRKzeK5gn1f58QyniPnTXEqCmOpL6pkvPrprM1Lw+PbUXQSHsfieoX9Fi0vQWdQ==",
+  "dgSpecHash": "2Fb23WO4nyWyJNWE3rM0+szUmM0NUKpjiwq1NL2E0t12NSsBgRGCiROxynlDD2LETJeGC8f4HEIwrbWY9ByUWA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Wojtek746\\Desktop\\visualStudio\\MiniMesTrain-main\\src\\gitHub\\MiniMesTrain\\MiniMesTrainApi\\MiniMesTrainApi.csproj",
   "expectedPackageFiles": [
@@ -49,6 +49,9 @@
     "C:\\Users\\Wojtek746\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\Wojtek746\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\Wojtek746\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\Wojtek746\\.nuget\\packages\\nlog\\5.3.2\\nlog.5.3.2.nupkg.sha512",
+    "C:\\Users\\Wojtek746\\.nuget\\packages\\nlog.extensions.logging\\5.3.11\\nlog.extensions.logging.5.3.11.nupkg.sha512",
+    "C:\\Users\\Wojtek746\\.nuget\\packages\\nlog.web.aspnetcore\\5.3.11\\nlog.web.aspnetcore.5.3.11.nupkg.sha512",
     "C:\\Users\\Wojtek746\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "C:\\Users\\Wojtek746\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\Wojtek746\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",

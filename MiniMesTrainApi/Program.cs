@@ -7,6 +7,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MiniMesTrainApi.Repository;
+using NLog;
+using NLog.Config;
+using NLog.Targets;
+using NLog.Extensions.Logging;
+using LogLevel = NLog.LogLevel;
 
 namespace MiniMesTrainApi
 {
@@ -14,6 +19,20 @@ namespace MiniMesTrainApi
     {
         public static void Main(string[] args)
         {
+            var config = new LoggingConfiguration();
+
+            var consoleTarget = new ConsoleTarget
+            {
+                Name = "console",
+                Layout = "${longdate}|${level:uppercase=true}|${logger}|${message}",
+            };
+            config.AddRule(LogLevel.Debug, LogLevel.Fatal, consoleTarget, "*");
+
+            LogManager.Configuration = config;
+
+            Logger log = LogManager.GetCurrentClassLogger();
+
+            log.Debug("Init main");
             var builder = WebApplication.CreateBuilder(args);
 
 
@@ -34,6 +53,8 @@ namespace MiniMesTrainApi
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddLogging();
+
             string? connString = builder.Configuration.GetConnectionString("MiniProduction");
             if (connString == null)
             {
@@ -52,11 +73,11 @@ namespace MiniMesTrainApi
             builder.Services.AddScoped<ProductRepository, ProductRepository>();
 
             var app = builder.Build();
-            
+
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
-                app.UseSwaggerUI(options => 
+                app.UseSwaggerUI(options =>
                 {
                     options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
                     options.RoutePrefix = string.Empty;
@@ -70,6 +91,7 @@ namespace MiniMesTrainApi
             app.MapControllers();
 
             app.Run();
+            Console.Read();
         }
     }
 }

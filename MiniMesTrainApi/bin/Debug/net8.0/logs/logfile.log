@@ -1,0 +1,76 @@
+2024-05-24 11:21:01.5889|WARN|Microsoft.AspNetCore.Server.Kestrel|Overriding address(es) 'http://localhost:5070'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-05-24 11:21:01.6374|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5001
+2024-05-24 11:21:01.6402|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2024-05-24 11:21:01.6402|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2024-05-24 11:21:01.6402|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\Wojtek746\Desktop\visualStudio\MiniMesTrain-main\src\gitHub\MiniMesTrain\MiniMesTrainApi
+2024-05-24 11:21:22.1548|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 GET http://localhost:5001/machine/selectAll/ - - -
+2024-05-24 11:21:22.1906|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2024-05-24 11:21:22.1906|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'MiniMesTrainApi.Controllers.MachineController.SelectAll (MiniMesTrainApi)'
+2024-05-24 11:21:22.1906|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "SelectAll", controller = "Machine"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult SelectAll() on controller MiniMesTrainApi.Controllers.MachineController (MiniMesTrainApi).
+2024-05-24 11:21:22.7151|WARN|Microsoft.EntityFrameworkCore.Query|Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2024-05-24 11:21:23.5635|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (125ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [m].[ID], [m].[Description], [m].[Name], [o].[ID], [o].[Code], [o].[MachineId], [o].[ProductId], [o].[Quantity], [m0].[ID], [m0].[MachineId], [m0].[ParameterId]
+FROM [MiniMes].[Machines] AS [m]
+LEFT JOIN [MiniMes].[Orders] AS [o] ON [m].[ID] = [o].[MachineId]
+LEFT JOIN [Minimes].[MachineParameters] AS [m0] ON [m].[ID] = [m0].[MachineId]
+ORDER BY [m].[ID], [o].[ID]
+2024-05-24 11:21:23.6179|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[MiniMesTrainApi.Models.Machine, MiniMesTrainApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[<>f__AnonymousType0`5[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.ICollection`1[[MiniMesTrainApi.Models.Order, MiniMesTrainApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[<>f__AnonymousType1`1[[MiniMesTrainApi.Models.Parameter, MiniMesTrainApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], MiniMesTrainApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], MiniMesTrainApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-05-24 11:21:23.6618|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (11ms) [Parameters=[@__machineParameter_ParameterId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[ID], [p].[Name], [p].[Unit]
+FROM [MiniMes].[Parameters] AS [p]
+WHERE [p].[ID] = @__machineParameter_ParameterId_0
+2024-05-24 11:21:23.6734|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[@__machineParameter_ParameterId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[ID], [p].[Name], [p].[Unit]
+FROM [MiniMes].[Parameters] AS [p]
+WHERE [p].[ID] = @__machineParameter_ParameterId_0
+2024-05-24 11:21:23.6734|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[@__machineParameter_ParameterId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[ID], [p].[Name], [p].[Unit]
+FROM [MiniMes].[Parameters] AS [p]
+WHERE [p].[ID] = @__machineParameter_ParameterId_0
+2024-05-24 11:21:23.6734|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[@__machineParameter_ParameterId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[ID], [p].[Name], [p].[Unit]
+FROM [MiniMes].[Parameters] AS [p]
+WHERE [p].[ID] = @__machineParameter_ParameterId_0
+2024-05-24 11:21:23.6734|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (0ms) [Parameters=[@__machineParameter_ParameterId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[ID], [p].[Name], [p].[Unit]
+FROM [MiniMes].[Parameters] AS [p]
+WHERE [p].[ID] = @__machineParameter_ParameterId_0
+2024-05-24 11:21:23.6734|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action MiniMesTrainApi.Controllers.MachineController.SelectAll (MiniMesTrainApi) in 1482.5858ms
+2024-05-24 11:21:23.6734|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'MiniMesTrainApi.Controllers.MachineController.SelectAll (MiniMesTrainApi)'
+2024-05-24 11:21:23.6887|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 GET http://localhost:5001/machine/selectAll/ - 200 - application/json;+charset=utf-8 1536.7299ms
+2024-05-24 11:21:51.5768|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 OPTIONS http://localhost:5001/machine/addParameter - - -
+2024-05-24 11:21:51.5768|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2024-05-24 11:21:51.5768|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 OPTIONS http://localhost:5001/machine/addParameter - 204 - - 3.1037ms
+2024-05-24 11:21:51.5768|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request starting HTTP/1.1 POST http://localhost:5001/machine/addParameter - application/json 35
+2024-05-24 11:21:51.5768|INFO|Microsoft.AspNetCore.Cors.Infrastructure.CorsService|CORS policy execution successful.
+2024-05-24 11:21:51.5768|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executing endpoint 'MiniMesTrainApi.Controllers.MachineController.AddParameter (MiniMesTrainApi)'
+2024-05-24 11:21:51.5768|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Route matched with {action = "AddParameter", controller = "Machine"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult AddParameter(MiniMesTrainApi.FromBodys.process.MachineAddParameter) on controller MiniMesTrainApi.Controllers.MachineController (MiniMesTrainApi).
+2024-05-24 11:21:51.6244|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (2ms) [Parameters=[@__addParameter_MachineId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT [t].[ID], [t].[Description], [t].[Name], [o].[ID], [o].[Code], [o].[MachineId], [o].[ProductId], [o].[Quantity]
+FROM (
+    SELECT TOP(1) [m].[ID], [m].[Description], [m].[Name]
+    FROM [MiniMes].[Machines] AS [m]
+    WHERE [m].[ID] = @__addParameter_MachineId_0
+) AS [t]
+LEFT JOIN [MiniMes].[Orders] AS [o] ON [t].[ID] = [o].[MachineId]
+ORDER BY [t].[ID]
+2024-05-24 11:21:51.6244|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[ID], [p].[Name], [p].[Unit]
+FROM [MiniMes].[Parameters] AS [p]
+WHERE [p].[ID] = @__p_0
+2024-05-24 11:21:51.6921|INFO|Microsoft.EntityFrameworkCore.Database.Command|Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Minimes].[MachineParameters] ([MachineId], [ParameterId])
+OUTPUT INSERTED.[ID]
+VALUES (@p0, @p1);
+2024-05-24 11:21:51.7022|INFO|MiniMesTrainApi.Repository.MachineRepository|Successfully added Parameter with Id 1 for Machine with Id 9
+2024-05-24 11:21:51.7022|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|Executing OkObjectResult, writing value of type 'System.String'.
+2024-05-24 11:21:51.7022|INFO|Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker|Executed action MiniMesTrainApi.Controllers.MachineController.AddParameter (MiniMesTrainApi) in 117.8855ms
+2024-05-24 11:21:51.7022|INFO|Microsoft.AspNetCore.Routing.EndpointMiddleware|Executed endpoint 'MiniMesTrainApi.Controllers.MachineController.AddParameter (MiniMesTrainApi)'
+2024-05-24 11:21:51.7022|INFO|Microsoft.AspNetCore.Hosting.Diagnostics|Request finished HTTP/1.1 POST http://localhost:5001/machine/addParameter - 200 - text/plain;+charset=utf-8 123.1352ms
+2024-05-24 11:23:17.7111|WARN|Microsoft.AspNetCore.Server.Kestrel|Overriding address(es) 'http://localhost:5070'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2024-05-24 11:23:17.7364|INFO|Microsoft.Hosting.Lifetime|Now listening on: http://localhost:5001
+2024-05-24 11:23:17.7364|INFO|Microsoft.Hosting.Lifetime|Application started. Press Ctrl+C to shut down.
+2024-05-24 11:23:17.7364|INFO|Microsoft.Hosting.Lifetime|Hosting environment: Development
+2024-05-24 11:23:17.7364|INFO|Microsoft.Hosting.Lifetime|Content root path: C:\Users\Wojtek746\Desktop\visualStudio\MiniMesTrain-main\src\gitHub\MiniMesTrain\MiniMesTrainApi
