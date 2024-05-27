@@ -3,6 +3,8 @@ using MiniMesTrainApi.FromBodys.process;
 using MiniMesTrainApi.IRepository;
 using MiniMesTrainApi.Models;
 using MiniMesTrainApi.Persistance;
+using System.Collections.Generic;
+using System.Reflection.PortableExecutable;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace MiniMesTrainApi.Repository
@@ -10,9 +12,9 @@ namespace MiniMesTrainApi.Repository
     public class OrderRepository : IRepository<OrderUpdate, Order, OrderAddNew>
     {
         private readonly MiniProductionDbContext _dbContext;
-        private readonly ILogger<MachineRepository> _logger;
+        private readonly ILogger<OrderRepository> _logger;
 
-        public OrderRepository(MiniProductionDbContext dbContext, ILogger<MachineRepository> logger)
+        public OrderRepository(MiniProductionDbContext dbContext, ILogger<OrderRepository> logger)
         {
             _dbContext = dbContext;
             _logger = logger; 
@@ -96,14 +98,30 @@ namespace MiniMesTrainApi.Repository
         {
             var order = _dbContext.Orders.Include(m => m.Product).Include(m => m.Machine).FirstOrDefault(m => m.Id == updateProduct.OrderId);
             var product = _dbContext.Products.Include(m => m.Orders).FirstOrDefault(m => m.Id == updateProduct.ProductId);
+
             if (order == null || product == null)
             {
+                if (product == null)
+                {
+                    _logger.LogError($"Not found Product with Id {updateProduct.ProductId}");
+                }
+                else
+                {
+                    _logger.LogError($"Not found Order with Id {updateProduct.OrderId}");
+                }
                 return false;
             }
+
+            var last = new
+            {
+                ProductId = order.ProductId
+            };
 
             order.ProductId = updateProduct.ProductId;
 
             _dbContext.SaveChanges();
+
+            _logger.LogInformation($"Successfully update Product from Id {last.ProductId} for {order.ProductId} in Order on Id {order.Id}");
 
             return true;
         }
@@ -115,8 +133,28 @@ namespace MiniMesTrainApi.Repository
             var machine = _dbContext.Machines.FirstOrDefault(m => m.Id == update.MachineId);
             if (order == null || product == null || machine == null)
             {
+                if (product == null)
+                {
+                    _logger.LogError($"Not found Product with Id {update.ProductId}");
+                }
+                else if (machine == null)
+                {
+                    _logger.LogError($"Not found Machine with Id {update.MachineId}");
+                }
+                else
+                {
+                    _logger.LogError($"Not found Order with Id {update.OrderId}");
+                }
                 return false;
             }
+
+            var last = new
+            {
+                Code = order.Code,
+                MachineId = order.MachineId,
+                ProductId = order.ProductId,
+                Quantity = order.Quantity
+            }; 
 
             order.Code = update.Code;
             order.MachineId = update.MachineId;
@@ -124,6 +162,8 @@ namespace MiniMesTrainApi.Repository
             order.Quantity = update.Quantity;
 
             _dbContext.SaveChanges();
+
+            _logger.LogInformation($"Successfully update Order on Id {order.Id} from Code: {last.Code} and MachineId: {last.MachineId} and ProductId: {last.ProductId} and Quantity: {last.Quantity} to Code: {order.Code} and MachineId: {order.MachineId} and ProductId: {order.ProductId} and Quantity: {order.Quantity}");
 
             return true;
         }
@@ -134,12 +174,23 @@ namespace MiniMesTrainApi.Repository
 
             if (order == null)
             {
+                _logger.LogError($"Not found Order with Id {orderId}");
                 return false;
             }
+
+            var last = new
+            {
+                Code = order.Code,
+                MachineId = order.MachineId,
+                ProductId = order.ProductId,
+                Quantity = order.Quantity
+            };
 
             _dbContext.Orders.Remove(order);
 
             _dbContext.SaveChanges();
+
+            _logger.LogInformation($"Successfully delete Order from Id {order.Id} with Code: {last.Code} and MachineId: {last.MachineId} and ProductId: {last.ProductId} and Quantity: {last.Quantity}");
 
             return true;
         }

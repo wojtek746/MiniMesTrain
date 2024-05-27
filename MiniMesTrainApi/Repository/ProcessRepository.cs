@@ -1,20 +1,24 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using MiniMesTrainApi.FromBodys;
 using MiniMesTrainApi.FromBodys.process;
 using MiniMesTrainApi.IRepository;
 using MiniMesTrainApi.Models;
 using MiniMesTrainApi.Persistance;
+using MiniMesTrainApi.Repository;
 using System.Data.Common;
 using System.Globalization;
 
 public class ProcessRepository : IRepository<ProcessUpdate, Process, ProcessAddNew>
 {
     private readonly MiniProductionDbContext _dbContext;
+    private readonly ILogger<ProcessRepository> _logger;
 
-    public ProcessRepository(MiniProductionDbContext dbContext)
+    public ProcessRepository(MiniProductionDbContext dbContext, ILogger<ProcessRepository> logger)
     {
         _dbContext = dbContext;
+        _logger = logger;
     }
 
     public List<Process> SelectBy(ProcessSelectBy formData)
@@ -25,14 +29,12 @@ public class ProcessRepository : IRepository<ProcessUpdate, Process, ProcessAddN
         try
         {
             fromDate = DateTime.ParseExact(formData.DateTimeFrom, "MM/dd/yyyy", CultureInfo.InvariantCulture);
-        }
-        catch (FormatException) { }
-
-        try
-        {
             toDate = DateTime.ParseExact(formData.DateTimeTo, "MM/dd/yyyy", CultureInfo.InvariantCulture);
         }
-        catch (FormatException) { }
+        catch (FormatException)
+        {
+            _logger.LogInformation($"error with parse text to date while seeing Process"); 
+        }
 
         var query = _dbContext.Processes.Where(m => m.DateTime >= fromDate).Where(m => m.DateTime <= toDate).AsQueryable();
         if (formData.ProcessId > 0) query = query.Where(m => m.Id == formData.ProcessId);
@@ -47,14 +49,18 @@ public class ProcessRepository : IRepository<ProcessUpdate, Process, ProcessAddN
         if (formData.ProcessParameterId > 0) query = query.Where(m => m.ProcessParameters.Any(p => p.Id == formData.ProcessParameterId));
         if (formData.ProcessParameterValue != "null") query = query.Where(m => m.ProcessParameters.Any(p => p.Value.Contains(formData.ProcessParameterValue)));
 
+        _logger.LogInformation($"Saw Process with ");
+
         return query.ToList();
     }
 
     public List<Process> SelectAll()
     {
+        _logger.LogInformation($"Saw all Process");
         return _dbContext.Processes.Include(m => m.Order).Include(m => m.ProcessParameters).ToList();
     }
 
+    //do zmiany w środę, teraz (w poniedziałek po 15) zauważyłem, że tego nie zmieniłem po skopiowaniu z ProcessParameterRepository
     public bool AddParameter(int processId, int parameterId, string value)
     {
         var process = _dbContext.Processes.FirstOrDefault(m => m.Id == processId);
@@ -75,6 +81,7 @@ public class ProcessRepository : IRepository<ProcessUpdate, Process, ProcessAddN
         _dbContext.ProcessParameters.Add(newProcessParameter);
 
         _dbContext.SaveChanges();
+
         return true; 
     }
 

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MiniMesTrainApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+316ca1c230498cedd40196241e7e54172bd8e567")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ee3d0857b5459c951a699138f45d302a3ca09f5f")]
 [assembly: System.Reflection.AssemblyProductAttribute("MiniMesTrainApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MiniMesTrainApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
